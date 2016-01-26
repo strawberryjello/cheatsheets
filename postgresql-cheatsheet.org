@@ -68,3 +68,5 @@ Given two tables, =a= and =b=, and a join table =a_b= with columns =a_id= and =b
 select a_id, count(b_id) from a_b group by a_id;
 #+END_SRC
 
+Source:
+- http://stackoverflow.com/questions/34076228/how-to-count-the-number-of-joins-between-a-user-and-several-tables
