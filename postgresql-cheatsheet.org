@@ -60,3 +60,11 @@ To check:
 #+BEGIN_SRC 
 select rolname, rolsuper from pg_roles;
 #+END_SRC
+** Query cookbook
+*** Querying the number of joins between two tables
+Given two tables, =a= and =b=, and a join table =a_b= with columns =a_id= and =b_id=, the ff returns the number of times a record from =a= is joined to records from =b=:
+
+#+BEGIN_SRC sql
+select a_id, count(b_id) from a_b group by a_id;
+#+END_SRC
+
