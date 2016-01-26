@@ -1,0 +1,25 @@
+* tmux shortcuts
+There are plenty of comprehensive cheatsheets out there; this isn't one of them. This is just a reference for shortcuts I haven't used often enough to muscle-memorize. (Is that a word?)
+
+I'll refer to Ctrl-b as =<tmux>= here. (In my own setup I've remapped Ctrl-b to the backtick (=`=).)
+
+** Sessions
+
+Using =<tmux>=:
+#+begin_src
+<tmux>-:new   New session
+<tmux>-s      Switch session (displays list you can select from)
+<tmux>-d      Detach current session
+#+end_src
+
+Using the =tmux= command:
+#+begin_src
+tmux switch -t session-name   Switch to session specified
+#+end_src
+
+** Windows
+
+Using =<tmux>=:
+#+begin_src
+<tmux>-&      Kill current window
+#+end_src

@@ -1,0 +1,62 @@
+* PostgreSQL cheatsheet
+** psql
+*** Running an SQL script
+#+BEGIN_SRC 
+psql -d <db> -U <user> -f script.sql
+#+END_SRC
+
+** Resetting sequences
+*** Documentation
+[[http://www.postgresql.org/docs/current/static/functions-sequence.html][PostgreSQL docs - Sequence Manipulation Functions]]
+
+setval:
+#+BEGIN_QUOTE
+Reset the sequence object's counter value. The two-parameter form sets the sequence's last_value field to the specified value and sets its is_called field to true, meaning that the next nextval will advance the sequence before returning a value. The value reported by currval is also set to the specified value. In the three-parameter form, is_called can be set to either true or false. true has the same effect as the two-parameter form. If it is set to false, the next nextval will return exactly the specified value, and sequence advancement commences with the following nextval. Furthermore, the value reported by currval is not changed in this case. For example,
+
+#+BEGIN_SRC sql
+SELECT setval('foo', 42);           Next nextval will return 43
+SELECT setval('foo', 42, true);     Same as above
+SELECT setval('foo', 42, false);    Next nextval will return 42
+#+END_SRC
+
+The result returned by setval is just the value of its second argument.
+
+*Important*: Because sequences are non-transactional, changes made by setval are not undone if the transaction rolls back.
+#+END_QUOTE
+
+*** To latest primary key value
+#+BEGIN_SRC sql
+select setval('table_id_seq', (select max(id) from table));
+#+END_SRC
+
+** Users
+*** Alter postgres user
+Login as postgres
+#+BEGIN_SRC 
+sudo su -l postgres
+#+END_SRC
+
+Run psql, then alter user
+#+BEGIN_SRC 
+alter user postgres with encrypted password '<passwd>';
+#+END_SRC
+
+Exit from postgres user login
+
+Source:
+- http://sharadchhetri.com/2013/08/17/how-to-set-user-postgres-password-in-postgresql-9-1/
+
+*** Create superuser
+#+BEGIN_SRC 
+create user <user> with superuser;
+#+END_SRC
+
+*** Set superuser
+#+BEGIN_SRC 
+alter user <user> with superuser;
+#+END_SRC
+
+To check:
+#+BEGIN_SRC 
+select rolname, rolsuper from pg_roles;
+#+END_SRC

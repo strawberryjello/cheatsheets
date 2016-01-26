@@ -1,0 +1,179 @@
+* Emacs cheatsheet
+** Inserting text
+*** Quoting/escaping characters
+Excerpt from the [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Inserting-Text.html][GNU Emacs manual - Inserting text]]:
+#+BEGIN_QUOTE
+To insert a non-graphic character, or a character that your keyboard does not support, first quote it by typing =C-q= (quoted-insert). There are two ways to use =C-q=:
+
+- =C-q= followed by any non-graphic character (even =C-g=) inserts that character. For instance, =C-q DEL= inserts a literal ‘DEL’ character.
+- =C-q= followed by a sequence of octal digits inserts the character with the specified octal character code. You can use any number of octal digits; any non-digit terminates the sequence. If the terminating character is RET, that RET serves only to terminate the sequence. Any other non-digit terminates the sequence and then acts as normal input—thus, =C-q 1 0 1 B= inserts ‘AB’.
+
+The use of octal sequences is disabled in ordinary non-binary Overwrite mode, to give you a convenient way to insert a digit instead of overwriting with it. 
+#+END_QUOTE
+
+Other references:
+- [[http://ergoemacs.org/emacs/emacs_line_ending_char.html][blog post by Xah Lee about newlines in Emacs]]
+- [[http://www.emacswiki.org/emacs/QuotedInsert][EmacsWiki - Quoted Insert]]
+
+** Buffers
+*** Reverting a buffer
+source: [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Reverting.html][GNU Emacs Manual - Reverting a buffer]]
+
+#+BEGIN_SRC 
+M-x revert-buffer
+#+END_SRC
+
+*** Indirect buffers
+Definition from the [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Indirect-Buffers.html][GNU Emacs manual]]:
+#+BEGIN_QUOTE
+An indirect buffer shares the text of some other buffer, which is called the base buffer of the indirect buffer. In some ways it is a buffer analogue of a symbolic link between files. 
+
+The text of the indirect buffer is always identical to the text of its base buffer; changes made by editing either one are visible immediately in the other. But in all other respects, the indirect buffer and its base buffer are completely separate. They can have different names, different values of point, different narrowing, different markers, different major modes, and different local variables.
+
+An indirect buffer cannot visit a file, but its base buffer can. If you try to save the indirect buffer, that actually works by saving the base buffer. Killing the base buffer effectively kills the indirect buffer, but killing an indirect buffer has no effect on its base buffer.
+
+One way to use indirect buffers is to display multiple views of an outline. See [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Outline-Views.html#Outline-Views][Outline Views]].
+#+END_QUOTE
+
+**** clone-indirect-buffer-other-window
+#+BEGIN_SRC 
+C-x 4 c
+#+END_SRC
+
+#+BEGIN_QUOTE
+Create an indirect buffer that is a twin copy of the current buffer, and select it in another window
+#+END_QUOTE
+
+Demos:
+- [[https://www.youtube.com/watch?v=FtieBc3KptU][Emacs for Writers]], thoughtbot talk by Jay Dixit (at ~26:51)
+
+** Browsing files
+*** browse-url-of-file
+[[http://stackoverflow.com/a/2036632][from Stackoverflow]]:
+#+BEGIN_QUOTE
+browse-url-of-file is an interactive compiled Lisp function in `browse-url.el'.
+#+END_QUOTE
+
+Excerpt from [[https://www.cs.cmu.edu/afs/cs/project/cmcl/link.nectar/member/mjchan/lib/emacs/lisp/www/browse-url.el][browse-url.el]] (written by Denis Howe):
+#+BEGIN_SRC lisp
+(defun browse-url-of-file (&optional file)
+  "Ask a WWW browser to display FILE.
+
+Display the current buffer's file if FILE is nil or if called
+interactively.
+
+Variable `browse-url-filename-alist' gives a list of replacements
+which are performed on the filename to turn it into a URL.
+
+Variable `browse-url-browser-function' contains the function to pass
+the URL to a browser.
+
+Runs `browse-url-of-file-hook' after displaying the file."
+  (interactive)
+  (or file (setq file (buffer-file-name)))
+  (let ((buf (get-file-buffer file)))
+    (if buf (save-excursion
+	      (set-buffer buf)
+	      (cond
+	       ((not (buffer-modified-p)))
+	       (browse-url-save-file (save-buffer))
+	       (t (message "%s modified since last save" file))))))
+  (funcall browse-url-browser-function
+	   (browse-url-file-url file))
+  (run-hooks 'browse-url-of-file-hook))
+#+END_SRC
+
+Note:
+- no official documentation in the GNU Emacs Manual
+
+Related:
+- [[http://www.emacswiki.org/emacs/BrowseUrl][Browse URL - EmacsWiki]]
+- [[http://www.gnu.org/software/emacs/manual/html_node/emacs/Browse_002dURL.html][Following URLs - GNU Emacs Manual]]
+* Org-mode
+** Structure editing
+From [[http://orgmode.org/manual/Structure-editing.html][the Org mode manual]] and [[https://github.com/edwtjo/evil-org-mode][the evil-org-mode readme]]:
+
+#+BEGIN_SRC 
+M-<left>     (org-do-promote)
+<             evil-org-mode
+    Promote current heading by one level.
+
+M-<right>    (org-do-demote)
+>             evil-org-mode
+    Demote current heading by one level.
+
+M-S-<left>   (org-promote-subtree)
+M-S-h         evil-org-mode
+    Promote the current subtree by one level.
+
+M-S-<right>  (org-demote-subtree)
+M-S-l         evil-org-mode
+    Demote the current subtree by one level.
+
+M-S-<up>     (org-move-subtree-up)
+M-S-k         evil-org-mode
+    Move subtree up (swap with previous subtree of same level).
+
+M-S-<down>   (org-move-subtree-down)
+M-S-j         evil-org-mode
+    Move subtree down (swap with next subtree of same level). 
+#+END_SRC
+
+** TODOs
+*** Keywords for individual files
+Example from [[http://orgmode.org/manual/Per_002dfile-keywords.html#Per_002dfile-keywords][the Org manual]]:
+#+BEGIN_SRC 
+#+TODO: TODO FEEDBACK VERIFY | DONE CANCELED
+#+END_SRC
+
+- Remember that the keywords after the vertical bar (or the last keyword if no bar is there) must always mean that the item is DONE (although you may use a different word). After changing one of these lines, use =C-c C-c= with the cursor still in the line to make the changes known to Org mode.
+- Org mode parses these lines only when Org mode is activated after visiting a file. =C-c C-c= with the cursor in a line starting with '#+' is simply restarting Org mode for the current buffer. 
+
+Note:
+- using shortcut characters (as in [[http://orgmode.org/manual/Fast-access-to-TODO-states.html#Fast-access-to-TODO-states][the manual page on fast access]]) also works:
+#+BEGIN_SRC 
+#+TODO: TODO(t) STARTED(s) DONE(d)
+#+END_SRC
+
+** Handling links
+*** With cursor on existing link
+Excerpt from [[http://orgmode.org/manual/Handling-links.html][Org manual]]:
+
+#+BEGIN_SRC 
+C-c C-l   (with cursor on existing link)
+#+END_SRC
+
+#+BEGIN_QUOTE
+When the cursor is on an existing link, =C-c C-l= allows you to edit the link and description parts of the link.
+#+END_QUOTE
+
+Note:
+- currently this is the easiest way to extract the URL embedded in an Org link -- copy the link when it appears in the minibuffer for editing
+
+** Tables
+*** Create from region
+#+BEGIN_SRC 
+C-c |   (org-table-create-or-convert-from-region)
+#+END_SRC
+
+From the Org tutorial for tables:
+#+BEGIN_QUOTE
+ Usually, this command should be smart enough to guess what is the field separator for the region. If each line of the active region contains a TAB or a comma, it will assume this is the separator.
+
+- If you want to force the comma as a field separator, press =C-u C-c |=.
+- If you want to force TAB as a field separator, press =C-u C-u C-c |=.
+- If you want to force a specific number of spaces – say 3 – use =C-u 3 C-c |=.
+#+END_QUOTE
+
+Resources:
+- [[http://orgmode.org/manual/Built_002din-table-editor.html][Built-in table editor - Org Manual]]
+- [[http://orgmode.org/worg/org-tutorials/tables.html][Org tutorial for tables - Worg]]
+
+** Babel
+*** Editing source code
+Excerpt from [[http://orgmode.org/manual/Editing-source-code.html][the Org manual]]:
+#+BEGIN_QUOTE
+Use C-c ' to edit the current code block. This brings up a language major-mode edit buffer containing the body of the code block. Manually saving this buffer with =<C-x C-s>= will write the contents back to the Org buffer. You can also set =org-edit-src-auto-save-idle-delay= to save the base buffer after some idle delay, or =org-edit-src-turn-on-auto-save= to auto-save this buffer into a separate file using =auto-save-mode=.
+
+Use C-c ' again to exit.
+#+END_QUOTE

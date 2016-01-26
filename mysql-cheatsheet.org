@@ -1,0 +1,20 @@
+* MySQL 5.5 cheatsheet
+** Outside a session
+Default root login (with password prompt):
+=mysql -u root -p whichdb=
+
+Restore dump:
+=mysql -u root -p whichdb < dump.sql=
+
+Create dump:
+=mysqldump -u root -p whichdb [whichtable...] > dump.sql=
+
+** After starting a session
+Create DB:
+=create database whichdb;=
+
+List tables:
+=show tables;=
+
+Describe table columns:
+=describe tablename;=
