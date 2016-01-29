@@ -6,6 +6,11 @@ diskutil list
 #+END_SRC
 - eg, =/dev/disk3s1=
 
+Mount:
+#+BEGIN_SRC 
+diskutil mount /dev/disk3s1
+#+END_SRC
+
 Unmount:
 #+BEGIN_SRC 
 diskutil unmount /dev/disk3s1
