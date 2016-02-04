@@ -1,0 +1,18 @@
+* Ruby
+** Replacing UTF-8 characters misinterpreted as Latin-1
+Example: replace 'Ã¼' with 'ü'
+#+BEGIN_SRC ruby
+string = 'MÃ¼tter'
+string.gsub('Ã¼', 'ü')
+#+END_SRC
+
+Codepoints (in hex, use double quotes and braces) can also be used:
+#+BEGIN_SRC ruby
+string = 'AdriÃ ' # the 'space' is not the usual single whitespace character
+string.gsub("Ã\u{A0}", 'à')
+#+END_SRC
+- When in doubt, use =String#codepoints= to find out the integer ordinal of the character then convert the value into hex
+
+** Resources
+- https://codepoints.net/
+- http://yehudakatz.com/2010/05/05/ruby-1-9-encodings-a-primer-and-the-solution-for-rails/
