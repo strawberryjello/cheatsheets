@@ -13,8 +13,14 @@ Create dump:
 Create DB:
 =create database whichdb;=
 
+List databases:
+=show databases;=
+
 List tables:
 =show tables;=
 
 Describe table columns:
 =describe tablename;=
+
+** References
+- http://www.pantz.org/software/mysql/mysqlcommands.html
