@@ -89,6 +89,24 @@ Note:
 Related:
 - [[http://www.emacswiki.org/emacs/BrowseUrl][Browse URL - EmacsWiki]]
 - [[http://www.gnu.org/software/emacs/manual/html_node/emacs/Browse_002dURL.html][Following URLs - GNU Emacs Manual]]
+** Modes
+*** describe-mode 
+From the [[http://www.gnu.org/software/emacs/manual/html_node/elisp/Mode-Help.html][GNU Emacs Manual]]:
+#+BEGIN_QUOTE
+The =describe-mode= function provides information about major modes. It is normally bound to =C-h m=.
+
+#+BEGIN_SRC 
+describe-mode &optional buffer
+#+END_SRC
+
+This command displays the documentation of the current buffer's major mode and minor modes. It uses the =documentation= function to retrieve the documentation strings of the major and minor mode commands (see [[http://www.gnu.org/software/emacs/manual/html_node/elisp/Accessing-Documentation.html#Accessing-Documentation][Accessing Documentation]]).
+
+If called from Lisp with a non-nil buffer argument, this function displays the documentation for that buffer's major and minor modes, rather than those of the current buffer. 
+#+END_QUOTE
+
+See also:
+- http://stackoverflow.com/questions/1511737/how-do-you-list-the-active-minor-modes-in-emacs
+
 * Org-mode
 ** Structure editing
 From [[http://orgmode.org/manual/Structure-editing.html][the Org mode manual]] and [[https://github.com/edwtjo/evil-org-mode][the evil-org-mode readme]]:
