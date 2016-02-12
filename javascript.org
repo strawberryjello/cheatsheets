@@ -1,0 +1,11 @@
+* JavaScript
+** Linters
+- http://jshint.com/
+- http://jscs.info/
+- https://github.com/feross/standard
+- https://github.com/Flet/semistandard
+  - same rules as standard, except it allows semicolons
+
+** Resources
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript
