@@ -1,4 +1,7 @@
 * Emacs cheatsheet
+** Version
+=M-x emacs-version=
+
 ** Inserting text
 *** Quoting/escaping characters
 Excerpt from the [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Inserting-Text.html][GNU Emacs manual - Inserting text]]:
@@ -198,6 +201,7 @@ Use C-c ' again to exit.
 * Packages
 ** Linting
 - https://github.com/flycheck/flycheck
+  - requires [[https://github.com/NicolasPetton/seq.el][seq.el]] (which is included by default in emacs 25, see [[http://endlessparentheses.com/new-on-elpa-and-in-emacs-25-1-seq-el.html][this post on Endless Parentheses]])
 
 ** Web development
 Generic
