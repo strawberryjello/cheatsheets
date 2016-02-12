@@ -177,3 +177,18 @@ Use C-c ' to edit the current code block. This brings up a language major-mode e
 
 Use C-c ' again to exit.
 #+END_QUOTE
+* Packages
+** JavaScript
+- https://github.com/mooz/js2-mode/
+  - ELPA: http://elpa.gnu.org/packages/js2-mode.html
+  - requires emacs 24
+- https://github.com/magnars/js2-refactor.el
+  - see readme for keybindings
+- https://github.com/ScottyB/ac-js2
+  - autocomplete, uses js2-mode and skewer-mode
+  - requires emacs 24.3
+- https://github.com/skeeto/skewer-mode
+  - provides live interaction with JavaScript, CSS, and HTML in a web browser
+  - requires emacs 24.3
+- https://github.com/segv/jss
+  - jsSlime: emacs toolkit for developing and debugging in-browser javascript code
