@@ -90,7 +90,7 @@ Related:
 - [[http://www.emacswiki.org/emacs/BrowseUrl][Browse URL - EmacsWiki]]
 - [[http://www.gnu.org/software/emacs/manual/html_node/emacs/Browse_002dURL.html][Following URLs - GNU Emacs Manual]]
 ** Modes
-*** describe-mode 
+*** describe-mode
 From the [[http://www.gnu.org/software/emacs/manual/html_node/elisp/Mode-Help.html][GNU Emacs Manual]]:
 #+BEGIN_QUOTE
 The =describe-mode= function provides information about major modes. It is normally bound to =C-h m=.
@@ -196,7 +196,11 @@ Use C-c ' to edit the current code block. This brings up a language major-mode e
 Use C-c ' again to exit.
 #+END_QUOTE
 * Packages
-** JavaScript
+** Linting
+- https://github.com/flycheck/flycheck
+
+** Web development
+JavaScript
 - https://github.com/mooz/js2-mode/
   - ELPA: http://elpa.gnu.org/packages/js2-mode.html
   - requires emacs 24
@@ -210,3 +214,7 @@ Use C-c ' again to exit.
   - requires emacs 24.3
 - https://github.com/segv/jss
   - jsSlime: emacs toolkit for developing and debugging in-browser javascript code
+
+Other
+- https://github.com/yasuyk/web-beautify
+  - formatting package of HTML, CSS and JavaScript/JSON
