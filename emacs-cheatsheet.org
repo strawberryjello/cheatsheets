@@ -200,6 +200,10 @@ Use C-c ' again to exit.
 - https://github.com/flycheck/flycheck
 
 ** Web development
+Generic
+- http://web-mode.org/
+  - supports JSHint via =web-mode-jshint= (requires existing JSHint installation)
+
 JavaScript
 - https://github.com/mooz/js2-mode/
   - ELPA: http://elpa.gnu.org/packages/js2-mode.html

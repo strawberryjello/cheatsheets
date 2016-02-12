@@ -1,3 +1,19 @@
 * Ruby
+** Gems
+*** ruby-lint
+https://github.com/YorickPeterse/ruby-lint
+
+from the readme:
+#+BEGIN_QUOTE
+ruby-lint is a static code analysis tool for Ruby. It is inspired by tools such as jshint, flake8 and similar tools. ruby-lint primarily focuses on logic related errors such as the use of non existing variables instead of focusing on semantics (e.g. the amount of characters per line).
+#+END_QUOTE
+
+*** YARD
+http://yardoc.org/
+
+#+BEGIN_QUOTE
+YARD is a documentation generation tool for the Ruby programming language. It enables the user to generate consistent, usable documentation that can be exported to a number of formats very easily, and also supports extending for custom Ruby constructs such as custom class level definitions.
+#+END_QUOTE
+
 ** Resources
 - http://www.zenspider.com/Languages/Ruby/QuickRef.html
