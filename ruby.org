@@ -17,3 +17,14 @@ YARD is a documentation generation tool for the Ruby programming language. It en
 
 ** Resources
 - http://www.zenspider.com/Languages/Ruby/QuickRef.html
+
+* Rails
+** Testing (Minitest)
+Tutorials
+- http://nithinbekal.com/posts/capybara-minitest-rails
+
+Gems
+- https://github.com/blowmage/minitest-rails-capybara
+- https://github.com/jnicklas/capybara
+- https://github.com/copiousfreetime/launchy
+
