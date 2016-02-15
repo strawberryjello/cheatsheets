@@ -15,6 +15,13 @@ http://yardoc.org/
 YARD is a documentation generation tool for the Ruby programming language. It enables the user to generate consistent, usable documentation that can be exported to a number of formats very easily, and also supports extending for custom Ruby constructs such as custom class level definitions.
 #+END_QUOTE
 
+*** bcrypt-ruby
+https://github.com/codahale/bcrypt-ruby
+
+#+BEGIN_QUOTE
+bcrypt-ruby is a Ruby binding for the OpenBSD bcrypt() password hashing algorithm, allowing you to easily store a secure hash of your users' passwords.
+#+END_QUOTE
+
 ** Resources
 - http://www.zenspider.com/Languages/Ruby/QuickRef.html
 
@@ -28,3 +35,7 @@ Gems
 - https://github.com/jnicklas/capybara
 - https://github.com/copiousfreetime/launchy
 
+** User authentication
+API
+- http://api.rubyonrails.org/classes/ActiveModel/SecurePassword/ClassMethods.html#method-i-has_secure_password
+  - uses the bcrypt gem
