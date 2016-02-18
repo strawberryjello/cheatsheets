@@ -39,3 +39,9 @@ Gems
 API
 - http://api.rubyonrails.org/classes/ActiveModel/SecurePassword/ClassMethods.html#method-i-has_secure_password
   - uses the bcrypt gem
+
+** Articles
+- http://brandonhilkert.com/blog/7-reasons-why-im-sticking-with-minitest-and-fixtures-in-rails/
+- http://culttt.com/2016/02/17/replacing-fixtures-with-factory-girl-in-ruby-on-rails/
+- http://culttt.com/2016/02/10/using-form-objects-in-ruby-on-rails-with-reform/
+  - includes examples of form tests
