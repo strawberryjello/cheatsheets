@@ -6,6 +6,11 @@
 - https://github.com/Flet/semistandard
   - same rules as standard, except it allows semicolons
 
+** Packages
+- https://js.coach/
+  - an opinionated catalog of open source JS packages
+
 ** Resources
+- http://jstherightway.org/
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript
