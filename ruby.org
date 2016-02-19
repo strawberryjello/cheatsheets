@@ -45,3 +45,8 @@ API
 - http://culttt.com/2016/02/17/replacing-fixtures-with-factory-girl-in-ruby-on-rails/
 - http://culttt.com/2016/02/10/using-form-objects-in-ruby-on-rails-with-reform/
   - includes examples of form tests
+- http://everydayrails.com/2015/04/05/rspec-assigns-rails-testing.html
+  - the difference between assigns and reload
+  - assigns will be deprecated in Rails 5
+- https://buildtoship.com/upcoming-changes-in-rails-5-0/
+  - controller tests may be phased out in favor of integration tests
