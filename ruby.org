@@ -32,6 +32,7 @@ http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 If you set an ID for a fixture:
 - use the ID when setting up a relation between that fixture and another fixture
+
   Example:
   #+BEGIN_SRC 
   # genres.yml
