@@ -27,6 +27,25 @@ bcrypt-ruby is a Ruby binding for the OpenBSD bcrypt() password hashing algorith
 
 * Rails
 ** Testing (Minitest)
+*** Fixtures
+http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+If you set an ID for a fixture:
+- use the ID when setting up a relation between that fixture and another fixture
+  Example:
+  #+BEGIN_SRC 
+  # genres.yml
+  fiction:
+    id: 1
+    name: Fiction
+
+  # books.yml
+  alice:
+    title: Alice in Wonderland
+    genre_id: 1
+  #+END_SRC
+
+*** Resources
 Tutorials
 - http://nithinbekal.com/posts/capybara-minitest-rails
 
@@ -41,6 +60,8 @@ API
   - uses the bcrypt gem
 
 ** Articles
+- http://billpatrianakos.me/blog/2013/10/13/list-of-rails-status-code-symbols/
+  - a comment links to the [[https://github.com/rack/rack/blob/1569a985e17d9caaf94d0e97d95ef642c4ab14ba/lib/rack/utils.rb#L470][map of HTTP status codes in Rack on Github]]
 - http://brandonhilkert.com/blog/7-reasons-why-im-sticking-with-minitest-and-fixtures-in-rails/
 - http://culttt.com/2016/02/17/replacing-fixtures-with-factory-girl-in-ruby-on-rails/
 - http://culttt.com/2016/02/10/using-form-objects-in-ruby-on-rails-with-reform/
