@@ -198,6 +198,10 @@ Use C-c ' to edit the current code block. This brings up a language major-mode e
 
 Use C-c ' again to exit.
 #+END_QUOTE
+
+*** Supported languages
+http://orgmode.org/worg/org-contrib/babel/languages.html
+
 * Packages
 ** Linting
 - https://github.com/flycheck/flycheck
