@@ -1,0 +1,10 @@
+* Git
+** Checkout
+Checking out a file from another branch:
+#+BEGIN_SRC 
+git checkout <branch> -- <file>
+#+END_SRC
+
+References:
+- http://nicolasgallagher.com/git-checkout-specific-files-from-another-branch/
+- http://schacon.github.io/git/git-checkout.html
