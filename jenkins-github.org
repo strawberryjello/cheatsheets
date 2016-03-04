@@ -1,0 +1,394 @@
+* What is Jenkins?
+http://jenkins-ci.org/
+
+- Jenkins is an open source continuous integration/automation server written in Java
+- actively developed, rich plugin ecosystem, customizable/extendable
+
+* Set up the Jenkins server (for Ubuntu only)
+(Adapted from [[http://geeks.aretotally.in/basic-jenkins-setup-on-aws-with-github-authentication-for-scala-projects/][Basic Jenkins Setup on AWS with Github Authentication for Scala Projects]])
+
+** Install Jenkins
+Install the ff:
+  #+BEGIN_SRC 
+  sudo apt-get install python-software-properties  
+  sudo add-apt-repository ppa:webupd8team/java  
+  sudo apt-get update  
+  sudo apt-get install oracle-java8-installer  
+  sudo apt-get install git  
+  wget -q -O - https://jenkins-ci.org/debian/jenkins-ci.org.key | sudo apt-key add -  
+  sudo sh -c 'echo deb http://pkg.jenkins-ci.org/debian binary/ > /etc/apt/sources.list.d/jenkins.list'  
+  sudo apt-get update  
+  sudo apt-get install jenkins  
+  sudo service jenkins start  
+  #+END_SRC
+
+After installation, the Jenkins dashboard should be viewable at =localhost:8080=
+
+** Configure the jenkins user
+- After installation, Jenkins will create its own user (named jenkins) on the server
+- Change the jenkins user's password (eg, try [[http://passwordsgenerator.net/][this password generator]])
+- Add the jenkins user to =sudoers=
+- Generate SSH keys in the Jenkins home directory (by default, =/var/lib/jenkins=):
+  #+BEGIN_SRC 
+  ssh-keygen
+  #+END_SRC
+  - hit Enter/Return for each choice to use the default settings
+
+** Install Jenkins plugins for Github and RVM
+- Go to your Jenkins dashboard (click the Jenkins logo at the upper left corner)
+- On the lefthand sidebar, click =Manage Jenkins=, then =Manage Plugins=
+- Click the =Available= tab for the list of available plugins
+- Search for the following plugins and tick their checkboxes:
+  - [[https://wiki.jenkins-ci.org/display/JENKINS/Github+Plugin][Github Plugin]]
+  - [[https://wiki.jenkins-ci.org/display/JENKINS/Github+OAuth+Plugin][Github OAuth Plugin]]
+  - [[https://wiki.jenkins-ci.org/display/JENKINS/GitHub+pull+request+builder+plugin][Github Pull Request Builder Plugin]]
+  - [[https://wiki.jenkins-ci.org/display/JENKINS/RVM+Plugin][RVM Plugin]]
+    - this installs rvm and the specified ruby version in the Jenkins directory (=/var/lib/jenkins=) if they're not there yet
+- Click =Download now and install after restart=
+- Jenkins will automatically download and install the plugins, then restart itself
+
+** Configure global Jenkins settings
+- Go to your Jenkins dashboard (click the Jenkins logo at the upper left corner)
+- On the lefthand sidebar, click =Manage Jenkins=, then =Configure System=
+
+JDK 
+- Click =Add JDK=
+- Set =JAVA_HOME= to =/usr/lib/jvm/java-8-oracle=
+  - if you installed Java elsewhere, change this directory accordingly
+
+Git
+- Set the Git executable path to =/usr/bin/git=
+
+Shell
+- Set the shell executable to =/bin/bash=
+
+Save!
+- Click the =Save= button when you're done
+
+** Make Jenkins accessible to Github
+- Jenkins must be accessible to Github so that Github can send notifications of changes made to your repository
+- This can be accomplished in two ways:
+  - Jenkins must be publicly accessible to the internet, or;
+  - there is a publicly accessible server that forwards requests to a private Jenkins server
+
+Forwarding to port 8080
+- If your Jenkins server has a public IP address, it still needs to forward Github's requests to port 8080 (the port Jenkins listens to by default), which is not publicly accessible
+- You can do this by setting up =nginx= on your Jenkins server to forward requests to port 8080, for example:
+  #+BEGIN_SRC 
+  upstream backends {
+      server 127.0.0.1:8080;
+  }
+
+  server {
+      listen              80;
+          server_name _;
+          root /var/lib/jenkins;
+          
+          location / {
+          proxy_pass http://backends;
+      
+      }
+
+  }
+  #+END_SRC
+
+** Install Rails dependencies
+Note: Log into the Jenkins server as the jenkins user when you do these
+
+*** PostgreSQL
+On Ubuntu:
+  #+BEGIN_SRC 
+  sudo apt-get install postgresql
+  sudo apt-get install postgresql-server-dev-X.Y
+  #+END_SRC
+- note: for the dev server, replace =X.Y= with the version number of PostgreSQL installed
+
+Create a jenkins PostgreSQL superuser in =psql=:
+  #+BEGIN_SRC sql
+  create user jenkins with superuser;
+  #+END_SRC
+
+*** RVM
+- Install RVM in the Jenkins directory (by default, =/var/lib/jenkins=):
+  #+BEGIN_SRC 
+  gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+  curl -L get.rvm.io | /bin/bash -s stable
+  #+END_SRC
+- Install Ruby using RVM
+  #+BEGIN_SRC 
+  rvm install <version>
+  #+END_SRC
+
+*** Bundler
+Check the Ruby version before installing:
+  #+BEGIN_SRC 
+  gem install bundler
+  #+END_SRC
+
+** Secure Jenkins using Github OAuth
+- The Github OAuth Plugin uses the Github authentication API to:
+  - authenticate users who want to run builds on Jenkins or configure Jenkins
+  - allow Github to send notifications to Jenkins using webhooks
+- See [[https://wiki.jenkins-ci.org/display/JENKINS/Github+OAuth+Plugin][Github OAuth Plugin]] for more details
+
+*** Register a Github OAuth app
+- Log into your Github account
+- If you want the Github OAuth app to belong to a personal account (eg, yours), go to: https://github.com/settings/applications/new
+- If you want the Github OAuth app to belong to an organization, go to: https://github.com/organizations/<org-name>/settings/applications
+  - you will need admin access to see this URL
+- Fill in the application name and homepage URL
+- Fill in the authorization callback URL: =http://<public IP>/securityRealm/finishLogin=
+  - =<public IP>= is the publicly available URL of your Jenkins server, or a publicly available URL of a server that will forward Github's requests to your Jenkins server
+- Take note of the =Client ID= and the =Client Secret= -- they're required to set up Jenkins's authentication
+
+Note: Apps can be transferred to another user or organization by clicking the =Transfer ownership= link on the app page
+
+*** Configure Global Security on Jenkins
+- Go to your Jenkins dashboard (click the Jenkins logo at the upper left corner)
+- On the lefthand sidebar, click =Manage Jenkins=, then =Configure Global Security=
+- tick the =Enable security= checkbox at the top
+
+**** Security Realm
+Select =Github Authentication Plugin=
+
+**** Global Github OAuth Settings
+- Github Web URI: https://github.com
+- Github API URI: https://api.github.com
+- Client ID: =<your app's Client ID>=
+- Client Secret: =<your app's Client Secret>=
+- OAuth Scope(s): read:org,user:email (default)
+
+**** Authorization
+Select =Github Committer Authorization Strategy=
+
+**** Github Authorization Settings
+- =Admin user names=: specify the Github usernames of users you want to give admin access to
+- =Participant in Organization=: members of the organizations specified will be able to run builds
+- Tick the =Use Github repository permissions= checkbox
+- Tick the =Grant READ permissions for /github-webhook= checkbox
+  - this will allow Github to send notifications to Jenkins via http://<jenkins public IP>/github-webhook (ie, anonymous external READ access is granted to that URL)
+
+**** Save!
+Click the =Save= button after you're done
+
+** Add SSH credentials
+These credentials will be used by Jenkins to pull from your Github repository
+
+- Go to your Jenkins dashboard (click the Jenkins logo at the upper left corner)
+- On the lefthand sidebar, click =Credentials=
+- Click =Add Credentials=
+  - this link only appears when there are no existing credentials
+  - if there are existing credentials, you must select the domain to add a new one to (or create a new domain to add to)
+- =Kind=: select =SSH Username with private key=
+- =Username: type in =jenkins=
+- =Private Key: select =From the Jenkins master ~/.ssh=
+  - make sure you generated your SSH keys in the Jenkins directory, ie =/var/lib/jenkins=
+- click the =Add= button to save
+
+* Configure the Github project
+** Add a deploy key for Jenkins
+- Go to =Settings=, then =Deploy keys=
+- Click the =Add deploy key= button
+- Paste in the jenkins user's public key
+  - if you generated the SSH keys in =/var/lib/jenkins= and went with the defaults, the public key should be =/var/lib/jenkins/.ssh/id_rsa.pub=
+- Tick the =Allow write access= checkbox
+- Click =Add key= to save
+
+** Create webhooks
+Note: =<public IP>= is the publicly available URL of your Jenkins server, or a publicly available URL of a server that will forward Github's requests to your Jenkins server
+
+Create a webhook for the master branch:
+- Go to =Settings=, then =Webhooks & services=
+- Click the =Add webhook= button
+- =Payload URL=: http://<public IP>/github-webhook/
+- =Content type=: application/x-www-form-urlencoded
+- If you only want to be notified of push events, select =Just the push event=
+- Otherwise, click =Let me select individual events= and tick the checkboxes for the events you need
+- Tick the =Active= checkbox
+- Click =Add webhook= to save
+
+Create a webhook for pull requests:
+- Go to =Settings=, then =Webhooks & services=
+- Click the =Add webhook= button
+- =Payload URL=: http://<public IP>/ghprbhook/
+- =Content type=: application/x-www-form-urlencoded
+- Click =Let me select individual events=
+  - Tick the =Pull Request= and =Issue comment= checkboxes
+  - Tick other checkboxes as needed
+- Tick the =Active= checkbox
+- Click =Add webhook= to save
+
+You can view the events that triggered webhook requests under =Recent Deliveries=
+- You can try to redeliver a failed request by clicking its =...= button (it's at the right, after the delivery timestamp), then clicking the =Redeliver= button
+- Headers, payloads, and responses for requests are also viewable 
+
+** Create a Jenkins service
+Note: =<public IP>= is the publicly available URL of your Jenkins server, or a publicly available URL of a server that will forward Github's requests to your Jenkins server
+
+- Go to =Settings=, then =Webhooks & services=
+- Click the =Add service= button, then search for the Jenkins Github plugin
+- =Jenkins hook URL=: http://<public IP>/github-webhook/
+- Tick the =Active= checkbox
+- Click =Add Service= to save
+
+* Create the Jenkins jobs
+** Master branch
+(Adapted from [[http://geeks.aretotally.in/jenkins-for-pull-requests-and-promoted-builds-deploying-to-multiple-environments/][Jenkins for Pull Requests and Promoted Builds Deploying to Multiple Environments]])
+
+Go to your Jenkins dashboard (click the Jenkins logo at the upper left corner)
+
+On the lefthand sidebar, click =New Item=
+- =Item name=: the name of the job, eg =<project> master=
+- Select =Freestyle project=
+  - or =Copy existing Item= if you already have an existing Rails job
+- Click =OK=
+
+*** Job info
+- Tick the =GitHub project= checkbox
+- =Project URL=: https://github.com/<user/org>/<project>/
+
+*** Source Code Management
+- Select =Git=
+- =Repository URL=: git@github.com:<user/org>/<project>.git
+- =Credentials=:
+  - select =jenkins= if it exists; otherwise, click the =Add= button to create a new set of credentials (see the section *Add SSH credentials*)
+- =Branch Specifier=: =*/master=
+
+*** Build Triggers
+- Tick =Build when a change is pushed to Github=
+
+*** Build Environment
+- Tick =Run the build in a RVM-managed environment=
+- =Implementation=: type in the Ruby version of your project (eg, 2.1.5)
+- Tick =SSH Agent=
+- =Credentials=:
+  - select =Specific credentials=
+  - select the =jenkins= credentials if they exist; otherwise, click the =Add= button to create a new set of credentials (see the section *Add SSH credentials*) 
+
+*** Build
+- Click =Add build step=, then select =Execute shell=
+- Sample build script:
+#+BEGIN_SRC sh
+#!/bin/bash
+
+bundle install
+
+bundle exec bin/rake db:drop RAILS_ENV=test
+bundle exec bin/rake db:setup RAILS_ENV=test
+bundle exec bin/rake test
+#+END_SRC
+- Notes:
+  - you can change the language used to invoke this script by changing the header line (eg, to =#!/bin/perl=)
+  - it is recommended to place this script in your repository then invoke it from here, eg: =bash -ex script.sh=
+
+*** Save!
+- Click the =Save= button after you're done
+
+** Pull requests
+(See the [[https://wiki.jenkins-ci.org/display/JENKINS/GitHub+pull+request+builder+plugin][Github Pull Request Builder Plugin]] for more details and troubleshooting)
+
+Go to your Jenkins dashboard (click the Jenkins logo at the upper left corner)
+
+On the lefthand sidebar, click =New Item=
+- =Item name=: the name of the job, eg =<project> pull requests=
+- Select =Freestyle project=
+  - or =Copy existing Item= if you already have an existing Rails job, then enter that job's name
+- Click =OK=
+
+*** Job info
+- Tick the =GitHub project= checkbox
+- =Project URL=: https://github.com/<user/org>/<project>/
+
+*** Source Code Management
+- Select =Git=
+- =Repository URL=: git@github.com:<user/org>/<project>.git
+- =Credentials=:
+  - select =jenkins= if it exists; otherwise, click the =Add= button to create a new set of credentials (see the section *Add SSH credentials*)
+- Click the =Advanced= button to set the [[https://www.kernel.org/pub/software/scm/git/docs/user-manual.html#def_refspec][refspec]] to watch:
+  - =Name=: the unique name to identify this repository (ie, the same name you would specify when using =git remote=); if you leave this blank, Jenkins will generate a unique name for you
+  - =Refspec=: =+refs/pull/*:refs/remotes/origin/pr/*=
+- =Branch Specifier=: =${sha1}=
+  - this environment variable is defined by [[https://wiki.jenkins-ci.org/display/JENKINS/GitHub+pull+request+builder+plugin][Github Pull Request Builder Plugin]]
+
+*** Build Triggers
+- Tick =Build when a change is pushed to Github=
+- Tick =Github Pull Request Builder=
+  - =Github API credentials=: select https://api.github.com
+  - =Admin list=: enter the Github usernames of the users you want to give admin access to
+  - Tick =Use github hooks for build triggering=
+  - Click the =Advanced button= for further settings:
+    - =List of organizations=: enter the Github organizations whose members will be whitelisted for build privileges
+    - Tick =Allow members of whitelisted organizations as admins=
+
+*** Build Environment
+- Tick =Run the build in a RVM-managed environment=
+- =Implementation=: type in the Ruby version of your project (eg, 2.1.5)
+- Tick =SSH Agent=
+- =Credentials=:
+  - select =Specific credentials=
+  - select the =jenkins= credentials if they exist; otherwise, click the =Add= button to create a new set of credentials (see the section *Add SSH credentials*) 
+
+*** Build
+- Click =Add build step=, then select =Execute shell=
+- Sample build script:
+#+BEGIN_SRC sh
+#!/bin/bash
+
+bundle install
+
+bundle exec bin/rake db:drop RAILS_ENV=test
+bundle exec bin/rake db:setup RAILS_ENV=test
+bundle exec bin/rake test
+#+END_SRC
+- Notes:
+  - you can change the language used to invoke this script by changing the header line (eg, to =#!/bin/perl=)
+  - it is recommended to place this script in your repository then invoke it from here, eg: =bash -ex script.sh=
+
+*** Save!
+- Click the =Save= button after you're done
+
+* Testing your jobs
+** Triggering builds
+To manually start a build from Jenkins:
+- Go to the job page (click the link to the job on the dashboard)
+- On the lefthand sidebar, click =Build Now=
+- The progress bar for the new job will appear in the =Build History= sidebar
+
+To trigger a build via webhook:
+- for the master job, try pushing to master
+- for the pull request job, try creating a pull request
+
+** Troubleshooting Github webhooks
+Check the =Github Hook Log=:
+- click the link at the lefthand sidebar of your job page
+- the log page displays the logs generated by the latest request received; if the logs aren't updated as soon as the webhook sends the request (ie, right after a push/pull request), then the webhook corresponding to the job may be incorrectly configured
+
+Check your webhooks:
+- go to your webhook's page (from your Github project, go to =Settings=, then =Webhooks & services=, then click the URL for your webhook under =Webhooks=)
+- check the topmost entry under =Recent Deliveries= by clicking the =...= button
+- if the response is =200=, the request was sent and received successfully
+  - check the configuration of your job: is the branch specifier correct? did you set the right refspec?
+  - check the Github Hook Log (see above)
+- if the request is timing out, check the ff:
+  - is the payload URL publicly accessible? (ie, you shouldn't get a 404/403 message when you try to access it in a browser)
+  - are requests being forwarded to port 8080 on your Jenkins server? (Jenkins listens on port 8080, which isn't publicly accessible; see the section *Make Jenkins publicly accessible* for an example nginx config)
+- click the =Redeliver= button to resend a request
+
+* Resources
+Jenkins wiki
+- [[https://wiki.jenkins-ci.org/display/JENKINS/GitHub+Plugin][Github Plugin]]
+- [[https://wiki.jenkins-ci.org/display/JENKINS/Github+OAuth+Plugin][Github OAuth Plugin]]
+- [[https://wiki.jenkins-ci.org/display/JENKINS/GitHub+pull+request+builder+plugin][Github Pull Request Builder Plugin]]
+- [[https://wiki.jenkins-ci.org/display/JENKINS/SSH+Credentials+Plugin][SSH Credentials Plugin]]
+- [[https://wiki.jenkins-ci.org/display/JENKINS/RVM+Plugin][RVM Plugin]]
+- [[https://wiki.jenkins-ci.org/display/JENKINS/Installing+Jenkins+on+Ubuntu][Installing Jenkins on Ubuntu]]
+- [[https://wiki.jenkins-ci.org/display/JENKINS/Jenkins+says+my+reverse+proxy+setup+is+broken][Jenkins says my reverse proxy setup is broken]]
+
+Github
+- [[https://developer.github.com/guides/managing-deploy-keys/][Managing Deploy Keys]]
+- [[https://developer.github.com/v3/oauth/][OAuth]]
+
+Articles
+- [[http://geeks.aretotally.in/basic-jenkins-setup-on-aws-with-github-authentication-for-scala-projects/][Basic Jenkins Setup on AWS with Github Authentication for Scala Projects]] (circa 2014)
+- [[http://geeks.aretotally.in/jenkins-for-pull-requests-and-promoted-builds-deploying-to-multiple-environments/][Jenkins for Pull Requests and Promoted Builds Deploying to Multiple Environments]] (circa 2014)
+- [[http://davidhollenberger.com/2015/09/25/jenkins-github-oath/][Configure Github Oauth on Jenkins]] (25 sep 2015)
