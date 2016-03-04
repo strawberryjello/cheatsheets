@@ -180,8 +180,8 @@ These credentials will be used by Jenkins to pull from your Github repository
   - this link only appears when there are no existing credentials
   - if there are existing credentials, you must select the domain to add a new one to (or create a new domain to add to)
 - =Kind=: select =SSH Username with private key=
-- =Username: type in =jenkins=
-- =Private Key: select =From the Jenkins master ~/.ssh=
+- =Username=: type in =jenkins=
+- =Private Key=: select =From the Jenkins master ~/.ssh=
   - make sure you generated your SSH keys in the Jenkins directory, ie =/var/lib/jenkins=
 - click the =Add= button to save
 
@@ -245,11 +245,11 @@ On the lefthand sidebar, click =New Item=
 
 *** Job info
 - Tick the =GitHub project= checkbox
-- =Project URL=: https://github.com/<user/org>/<project>/
+- =Project URL=: https://github.com/<user or org>/<project>/
 
 *** Source Code Management
 - Select =Git=
-- =Repository URL=: git@github.com:<user/org>/<project>.git
+- =Repository URL=: git@github.com:<user or org>/<project>.git
 - =Credentials=:
   - select =jenkins= if it exists; otherwise, click the =Add= button to create a new set of credentials (see the section *Add SSH credentials*)
 - =Branch Specifier=: =*/master=
@@ -297,11 +297,11 @@ On the lefthand sidebar, click =New Item=
 
 *** Job info
 - Tick the =GitHub project= checkbox
-- =Project URL=: https://github.com/<user/org>/<project>/
+- =Project URL=: https://github.com/<user or org>/<project>/
 
 *** Source Code Management
 - Select =Git=
-- =Repository URL=: git@github.com:<user/org>/<project>.git
+- =Repository URL=: git@github.com:<user or org>/<project>.git
 - =Credentials=:
   - select =jenkins= if it exists; otherwise, click the =Add= button to create a new set of credentials (see the section *Add SSH credentials*)
 - Click the =Advanced= button to set the [[https://www.kernel.org/pub/software/scm/git/docs/user-manual.html#def_refspec][refspec]] to watch:
