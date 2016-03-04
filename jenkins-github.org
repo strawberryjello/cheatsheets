@@ -354,7 +354,7 @@ bundle exec bin/rake test
 *** Save!
 - Click the =Save= button after you're done
 
-* Notifications (WIP)
+* Notifications
 ** Slack
 Notifications for each build can be sent to Slack via the Jenkins CI Slack app and the Slack plugin for Jenkins
 
