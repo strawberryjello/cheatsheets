@@ -1,4 +1,18 @@
-* JavaScript
+* JavaScript Reference
+** Objects
+*** Object.keys
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys
+
+Usage:
+#+BEGIN_SRC js
+Object.keys(obj)
+#+END_SRC
+
+Related:
+- http://stackoverflow.com/questions/3068534/getting-javascript-object-key-list
+- http://stackoverflow.com/questions/8430336/get-keys-of-json-object-in-javascript
+
+* JavaScript Tools and Resources
 ** Linters
 - http://jshint.com/
 - http://jscs.info/
