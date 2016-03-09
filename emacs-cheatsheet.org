@@ -156,6 +156,25 @@ Note:
 #+TODO: TODO(t) STARTED(s) DONE(d)
 #+END_SRC
 
+** Tags
+*** Setting tags
+Excerpt from the [[http://orgmode.org/manual/Setting-tags.html][Org manual]]:
+#+BEGIN_SRC 
+C-c C-q     (org-set-tags-command)
+    Enter new tags for the current headline.
+
+C-c C-c     (org-set-tags-command)
+    When the cursor is in a headline, this does the same as C-c C-q.
+#+END_SRC
+
+*** Default tags for a file
+Example from the [[http://orgmode.org/manual/Setting-tags.html][Org manual]]:
+#+BEGIN_SRC 
+#+TAGS: @work @home @tennisclub
+#+TAGS: laptop car pc sailboat
+#+END_SRC
+- place the line(s) at the top of the file
+
 ** Handling links
 *** With cursor on existing link
 Excerpt from [[http://orgmode.org/manual/Handling-links.html][Org manual]]:
