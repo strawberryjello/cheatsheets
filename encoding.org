@@ -16,3 +16,6 @@ string.gsub("Ã\u{A0}", 'à')
 ** Resources
 - https://codepoints.net/
 - http://yehudakatz.com/2010/05/05/ruby-1-9-encodings-a-primer-and-the-solution-for-rails/
+
+Gems
+- http://unicode-utils.rubyforge.org/ (Ruby 1.9, last updated in 2012)
