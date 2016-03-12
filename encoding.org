@@ -19,3 +19,8 @@ string.gsub("Ã\u{A0}", 'à')
 
 Gems
 - http://unicode-utils.rubyforge.org/ (Ruby 1.9, last updated in 2012)
+
+* Unicode
+** Resources
+- http://cldr.unicode.org/
+  - The Unicode CLDR provides key building blocks for software to support the world's languages, with the largest and most extensive standard repository of locale data available
