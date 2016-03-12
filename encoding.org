@@ -26,3 +26,5 @@ Gems
   - The Unicode CLDR provides key building blocks for software to support the world's languages, with the largest and most extensive standard repository of locale data available
 - https://github.com/twitter/twitter-cldr-rb
   - Ruby implementation of the ICU (International Components for Unicode) that uses the Common Locale Data Repository to format dates, plurals, and more
+- https://github.com/svenfuchs/ruby-cldr
+  - Ruby library for exporting data from CLDR (Common Locale Data Repository)
