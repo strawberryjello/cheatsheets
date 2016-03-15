@@ -8,3 +8,27 @@ git checkout <branch> -- <file>
 References:
 - http://nicolasgallagher.com/git-checkout-specific-files-from-another-branch/
 - http://schacon.github.io/git/git-checkout.html
+
+** Searching the commit logs
+*** Finding the commit that deleted a file, then restoring the file
+From [[http://stackoverflow.com/a/1113140][this StackOverflow answer]]:
+#+BEGIN_SRC 
+git rev-list -n 1 HEAD -- <file_path>
+git checkout <deleting_commit>^ -- <file_path>
+#+END_SRC
+
+[[http://linux.die.net/man/1/git-rev-list][git rev-list]] lists "commits that are reachable by following the parent links from the given commit(s)", so this will list the SHA1 hash of the last commit that modified =file_path= (=-n 1= limits output to just one commit). The =^= indicates the commit prior to =<deleting_commit>=, which presumably contains the deleted file. (See 'Carrot Parent' in Git Treeishes[fn:treeish].)
+
+Another approach from [[http://stackoverflow.com/a/953573][this StackOverflow answer]]:
+#+BEGIN_SRC 
+git log --diff-filter=D --summary
+git checkout $commit~1 filename
+#+END_SRC
+
+This will list all the commits that deleted files. =~1= specifies the 1st grandparent of the commit. (See 'Tilde Spec' in Git Treeishes[fn:treeish].)
+
+References:
+- http://stackoverflow.com/questions/953481/find-and-restore-a-deleted-file-in-a-git-repository
+
+Footnotes:
+[fn:treeish] https://schacon.github.io/gitbook/4_git_treeishes.html
