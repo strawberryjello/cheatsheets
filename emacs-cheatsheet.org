@@ -190,6 +190,20 @@ When the cursor is on an existing link, =C-c C-l= allows you to edit the link an
 Note:
 - currently this is the easiest way to extract the URL embedded in an Org link -- copy the link when it appears in the minibuffer for editing
 
+** Footnotes
+Excerpt from the [[http://orgmode.org/manual/Footnotes.html][Org manual]]:
+#+BEGIN_QUOTE
+A footnote is started by a footnote marker in square brackets in column 0, no indentation allowed. It ends at the next footnote definition, headline, or after two consecutive empty lines. The footnote reference is simply the marker in square brackets, inside text.
+#+END_QUOTE
+
+#+BEGIN_SRC 
+The Org homepage[fn:1] now looks a lot better than it used to.
+...
+[fn:1] The link is: http://orgmode.org
+#+END_SRC
+
+
+
 ** Tables
 *** Create from region
 #+BEGIN_SRC 
