@@ -15,6 +15,27 @@ http://yardoc.org/
 YARD is a documentation generation tool for the Ruby programming language. It enables the user to generate consistent, usable documentation that can be exported to a number of formats very easily, and also supports extending for custom Ruby constructs such as custom class level definitions.
 #+END_QUOTE
 
+*** Inch
+
+Github
+- https://github.com/rrrene/inch
+
+From the readme:
+#+BEGIN_QUOTE
+=inch= is a little bit like Code Climate, but for your inline code documentation (and not a webservice).
+
+It is a command-line utility that suggests places in your codebase where documentation can be improved.
+
+If there are no inline-docs yet, =inch= can tell you where to start.
+#+END_QUOTE
+
+Project site
+- http://trivelop.de/inch/
+  - screenshots and examples
+
+Github badges
+- http://inch-ci.org/
+
 *** bcrypt-ruby
 https://github.com/codahale/bcrypt-ruby
 
