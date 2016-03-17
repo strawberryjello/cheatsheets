@@ -9,6 +9,21 @@ References:
 - http://nicolasgallagher.com/git-checkout-specific-files-from-another-branch/
 - http://schacon.github.io/git/git-checkout.html
 
+** Revert
+*** Revert a range of commits
+From [[http://stackoverflow.com/a/4992711][this StackOverflow answer]]:
+#+BEGIN_SRC 
+git revert OLDER_COMMIT^..NEWER_COMMIT
+#+END_SRC
+
+This reverts the commits from =OLDER_COMMIT= to =NEWER_COMMIT=, inclusive (=OLDER_COMMIT^= refers to the parent of =OLDER_COMMIT=).
+
+Note:
+- Reverting multipe commits is only supported in Git 1.7.2 and up
+
+References
+- http://stackoverflow.com/questions/4991594/revert-a-range-of-commits-in-git
+
 ** Searching the commit logs
 *** Finding the commit that deleted a file, then restoring the file
 From [[http://stackoverflow.com/a/1113140][this StackOverflow answer]]:
@@ -32,3 +47,7 @@ References:
 
 Footnotes:
 [fn:treeish] https://schacon.github.io/gitbook/4_git_treeishes.html
+
+** Resources
+- https://git-scm.com/docs/gitrevisions
+  - specifying revisions and ranges
