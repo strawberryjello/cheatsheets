@@ -43,6 +43,16 @@ https://github.com/codahale/bcrypt-ruby
 bcrypt-ruby is a Ruby binding for the OpenBSD bcrypt() password hashing algorithm, allowing you to easily store a secure hash of your users' passwords.
 #+END_QUOTE
 
+*** wicked_pdf
+https://github.com/mileszs/wicked_pdf
+
+#+BEGIN_QUOTE
+Wicked PDF uses the shell utility [[http://wkhtmltopdf.org/][wkhtmltopdf]] to serve a PDF file to a user from HTML. In other words, rather than dealing with a PDF generation DSL of some sort, you simply write an HTML view as you would normally, then let Wicked PDF take care of the hard stuff.
+#+END_QUOTE
+
+Related links:
+- http://www.nubyrubyrailstales.com/2013/06/wickedpdf-wkhtmltopdf-and-herokua.html
+
 ** Resources
 - http://www.zenspider.com/Languages/Ruby/QuickRef.html
 
