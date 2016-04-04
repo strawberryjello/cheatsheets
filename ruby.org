@@ -53,6 +53,12 @@ Wicked PDF uses the shell utility [[http://wkhtmltopdf.org/][wkhtmltopdf]] to se
 Related links:
 - http://www.nubyrubyrailstales.com/2013/06/wickedpdf-wkhtmltopdf-and-herokua.html
 
+*** Capistrano
+**** Email notification
+- https://github.com/gofullstack/capistrano-notifier (last update: sep 2014)
+- https://github.com/pboling/capistrano_mailer (last update: jun 2014)
+- https://gist.github.com/nosolopau/8315119 (last update: jan 2014)
+
 ** Resources
 - http://www.zenspider.com/Languages/Ruby/QuickRef.html
 
