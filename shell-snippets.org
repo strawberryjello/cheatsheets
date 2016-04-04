@@ -1,0 +1,29 @@
+* zip
+** zip all same-level directories individually
+[[http://unix.stackexchange.com/a/68490][StackOverflow answer]]:
+#+BEGIN_QUOTE
+
+You can use this loop in bash:
+
+#+BEGIN_SRC sh
+for i in */; do zip -r "${i%/}.zip" "$i"; done
+#+END_SRC
+
+=i= is the name of the loop variable. =*/= means every subdirectory of the current directory, and will include a trailing slash in those names. Make sure you cd to the right place before executing this. "=$i=" simply names that directory, including trailing slash. The quotation marks ensure that whitespace in the directory name won't cause trouble. =${i%/}= is like =$i= but with the trailing slash removed, so you can use that to construct the name of the zip file.
+
+If you want to see how this works, include an =echo= before the =zip= and you will see the commands printed instead of executed.
+
+#+END_QUOTE
+
+Excerpt from [[Advanced Bash-Scripting Guide, Parameter Substitution]]:
+#+BEGIN_QUOTE
+=${var%Pattern}= Remove from =$var= the /shortest/ part of =$Pattern= that matches the /back end/ of =$var=.
+#+END_QUOTE
+
+
+* Resources
+- [[http://www.panix.com/~elflord/unix/bash-tute.html][A quick guide to writing scripts using the bash shell]]
+- [[http://www.tldp.org/LDP/Bash-Beginners-Guide/html/index.html][Bash Guide for Beginners]]
+  - [[http://www.tldp.org/LDP/Bash-Beginners-Guide/html/sect_03_04.html][3.4 Shell expansion]]
+- [[http://tldp.org/LDP/abs/html/index.html][Advanced Bash-Scripting Guide]]
+  - [[http://tldp.org/LDP/abs/html/parameter-substitution.html][10.2 Parameter Substitution]]
