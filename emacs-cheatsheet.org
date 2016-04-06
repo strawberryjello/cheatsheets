@@ -175,6 +175,31 @@ Example from the [[http://orgmode.org/manual/Setting-tags.html][Org manual]]:
 #+END_SRC
 - place the line(s) at the top of the file
 
+*** Clearing tags from a heading
+Excerpts from the [[http://orgmode.org/manual/Setting-tags.html][Org manual]]
+
+Fast tag selection by setting a unique letter:
+#+BEGIN_SRC 
+#+TAGS: @work(w)  @home(h)  @tennisclub(t)  laptop(l)  pc(p)
+#+END_SRC
+
+Actions for =C-c=:
+#+BEGIN_SRC 
+If at least one tag has a selection key then pressing C-c C-c will automatically present you with a special interface, listing inherited tags, the tags of the current headline, and a list of all valid tags with corresponding keys. In this interface, you can use the following keys:
+
+a-z...
+    Pressing keys assigned to tags will add or remove them from the list of tags in the current line. Selecting a tag in a group of mutually exclusive tags will turn off any other tags from that group.
+
+<TAB>
+    Enter a tag in the minibuffer, even if the tag is not in the predefined list. You will be able to complete on all tags present in the buffer. You can also add several tags: just separate them with a comma.
+
+<SPC>
+    Clear all tags for this line.
+
+<RET>
+    Accept the modified set. 
+#+END_SRC
+
 ** Handling links
 *** With cursor on existing link
 Excerpt from [[http://orgmode.org/manual/Handling-links.html][Org manual]]:
@@ -201,8 +226,6 @@ The Org homepage[fn:1] now looks a lot better than it used to.
 ...
 [fn:1] The link is: http://orgmode.org
 #+END_SRC
-
-
 
 ** Tables
 *** Create from region
