@@ -1,3 +1,17 @@
+* Manipulating text files
+** Splitting files by line number
+#+BEGIN_SRC sh
+cat -n | sed '<startline>,<endline>p' > outputfile
+#+END_SRC
+
+Source:
+- http://stackoverflow.com/questions/5683367/how-to-cropcut-text-files-based-on-starting-and-ending-line-numbers-in-cygwin
+  - accepted answer: http://stackoverflow.com/a/5683408
+
+Related:
+- [[https://kb.iu.edu/d/afar][In Unix, how can I split large files into a number of smaller files?]] (Indiana University Knowledge Base)
+  - explains usage of =split=, which can split files into smaller files by a set number of lines
+
 * zip
 ** zip all same-level directories individually
 [[http://unix.stackexchange.com/a/68490][StackOverflow answer]]:
@@ -19,7 +33,6 @@ Excerpt from [[Advanced Bash-Scripting Guide, Parameter Substitution]]:
 #+BEGIN_QUOTE
 =${var%Pattern}= Remove from =$var= the /shortest/ part of =$Pattern= that matches the /back end/ of =$var=.
 #+END_QUOTE
-
 
 * Resources
 - [[http://www.panix.com/~elflord/unix/bash-tute.html][A quick guide to writing scripts using the bash shell]]
