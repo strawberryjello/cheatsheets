@@ -1,2 +1,6 @@
 * Books
 - http://gameprogrammingpatterns.com/
+
+* Services
+- https://github.com/coreos/etcd
+  - Distributed reliable key-value store for the most critical data of a distributed system
