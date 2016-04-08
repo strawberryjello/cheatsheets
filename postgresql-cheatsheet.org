@@ -8,8 +8,9 @@ select version();
 
 From the shell:
 #+BEGIN_SRC sh
-postgres -c 'select version();'
+psql -c 'select version();'
 #+END_SRC
+- note: specify a database with =-d <dbname>= if required
 
 Source:
 - http://stackoverflow.com/questions/13733719/which-version-of-postgresql-am-i-running
