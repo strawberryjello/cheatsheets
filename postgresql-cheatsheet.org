@@ -90,6 +90,7 @@ To check:
 #+BEGIN_SRC 
 select rolname, rolsuper from pg_roles;
 #+END_SRC
+
 ** Query cookbook
 *** Querying the number of joins between two tables
 Given two tables, =a= and =b=, and a join table =a_b= with columns =a_id= and =b_id=, the ff returns the number of times a record from =a= is joined to records from =b=:
@@ -100,6 +101,37 @@ select a_id, count(b_id) from a_b group by a_id;
 
 Source:
 - http://stackoverflow.com/questions/34076228/how-to-count-the-number-of-joins-between-a-user-and-several-tables
+
+** Exporting
+From:
+http://stackoverflow.com/questions/12815496/export-specific-rows-from-a-postgresql-table-as-insert-sql-script
+
+Approach #1: using =pg_dump=
+- from the accepted answer: http://stackoverflow.com/a/12816187
+- create an export table:
+  #+BEGIN_SRC sql
+  create table export_table as 
+  select id, name, city
+  from nyummy.cimory
+  where city = 'tokio'
+  #+END_SRC
+- use =pg_dump= to export only the data as insert statements:
+  #+BEGIN_SRC sh
+  pg_dump --table=export_table --data-only --column-inserts my_database > data.sql 
+  #+END_SRC
+
+Approach #2: using =COPY=
+- from another answer: http://stackoverflow.com/a/12824831
+- export the data to a CSV file:
+  #+BEGIN_SRC sql
+  COPY (SELECT * FROM nyummy.cimory WHERE city = 'tokio') TO '/path/to/file.csv';
+  #+END_SRC
+  - note: =COPY= only works with absolute file paths
+- import the data from the CSV file:
+  #+BEGIN_SRC sql
+  COPY other_tbl FROM '/path/to/file.csv';
+  #+END_SRC
+
 ** Auditing
 *** Audit triggers
 - Generic: https://wiki.postgresql.org/wiki/Audit_trigger
