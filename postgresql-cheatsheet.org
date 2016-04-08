@@ -8,6 +8,17 @@ psql -d <db> -U <user> -f script.sql
 Notes:
 - =-W= forces a password prompt (not required, since =psql= will automatically prompt for a password if needed; see the [[http://www.postgresql.org/docs/current/static/app-psql.html][PostgreSQL docs]])
 
+*** Listing databases
+Via =psql=, use =-l= or =--list=:
+#+BEGIN_SRC 
+psql -l
+#+END_SRC
+
+Within a session, use =\l= or =\list=
+
+Documentation
+- http://www.postgresql.org/docs/current/interactive/app-psql.html
+
 ** Resetting sequences
 *** Documentation
 [[http://www.postgresql.org/docs/current/static/functions-sequence.html][PostgreSQL docs - Sequence Manipulation Functions]]
