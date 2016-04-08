@@ -99,3 +99,9 @@ select a_id, count(b_id) from a_b group by a_id;
 
 Source:
 - http://stackoverflow.com/questions/34076228/how-to-count-the-number-of-joins-between-a-user-and-several-tables
+** Auditing
+*** Audit triggers
+- Generic: https://wiki.postgresql.org/wiki/Audit_trigger
+- PostgreSQL 9.1+: https://wiki.postgresql.org/wiki/Audit_trigger_91plus
+- Related question on StackOverflow
+  - http://stackoverflow.com/questions/24882447/find-out-what-rows-where-deleted-and-updated
