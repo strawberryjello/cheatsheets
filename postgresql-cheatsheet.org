@@ -1,5 +1,20 @@
 * PostgreSQL cheatsheet
 ** psql
+*** Check PostgreSQL version
+Within a session:
+#+BEGIN_SRC sql
+select version();
+#+END_SRC
+
+From the shell:
+#+BEGIN_SRC sh
+postgres -c 'select version();'
+#+END_SRC
+
+Source:
+- http://stackoverflow.com/questions/13733719/which-version-of-postgresql-am-i-running
+  - accepted answer: http://stackoverflow.com/a/13733856
+
 *** Running an SQL script
 #+BEGIN_SRC 
 psql -d <db> -U <user> -f script.sql
