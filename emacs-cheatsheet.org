@@ -140,6 +140,15 @@ M-S-j         evil-org-mode
     Move subtree down (swap with next subtree of same level). 
 #+END_SRC
 
+** Timestamps
+From the [[http://orgmode.org/manual/Creating-timestamps.html][Org manual]]:
+#+BEGIN_SRC 
+C-c .     (org-time-stamp)
+    Prompt for a date and insert a corresponding timestamp. When the cursor is at an existing timestamp in the buffer, the command is used to modify this timestamp instead of inserting a new one. When this command is used twice in succession, a time range is inserted.
+C-c !     (org-time-stamp-inactive)
+    Like C-c ., but insert an inactive timestamp that will not cause an agenda entry.
+#+END_SRC
+
 ** TODOs
 *** Keywords for individual files
 Example from [[http://orgmode.org/manual/Per_002dfile-keywords.html#Per_002dfile-keywords][the Org manual]]:
