@@ -13,6 +13,19 @@ Related:
 - http://stackoverflow.com/questions/8430336/get-keys-of-json-object-in-javascript
 
 * JavaScript Tools and Resources
+** Testing
+*** Jasmine
+- http://jasmine.github.io/
+  - BDD for JavaScript
+- https://github.com/velesin/jasmine-jquery
+  - jQuery matchers and fixture loader for Jasmine framework
+- https://github.com/jasmine/jasmine-gem
+  - Ruby gem
+
+Tutorials
+- http://matthewroach.me/basic-jquery-testing-with-jasmine-part-1/
+- http://matthewroach.me/basic-jquery-testing-with-jasmine-spies-part-2/
+
 ** Linters
 - http://jshint.com/
 - http://jscs.info/
