@@ -23,8 +23,28 @@ Related:
   - Ruby gem
 
 Tutorials
-- http://matthewroach.me/basic-jquery-testing-with-jasmine-part-1/
-- http://matthewroach.me/basic-jquery-testing-with-jasmine-spies-part-2/
+- http://matthewroach.me/basic-jquery-testing-with-jasmine-part-1/ (jan 2013)
+- http://matthewroach.me/basic-jquery-testing-with-jasmine-spies-part-2/ (feb 2013)
+- http://www.sitepoint.com/integrate-jasmine-into-rails-for-solid-javascript-testing/ (jan 2016)
+- http://railscasts.com/episodes/261-testing-javascript-with-jasmine (apr 2011)
+- https://testdrivenwebsites.com/2010/07/29/html-fixtures-in-jasmine-using-jasmine-jquery/ (july 2010)
+
+*** QUnit
+- http://qunitjs.com/
+- https://github.com/jquery/qunit
+- install via npm or bower
+
+QUnit is a powerful, easy-to-use JavaScript unit testing framework. It's used by the jQuery, jQuery UI and jQuery Mobile projects and is capable of testing any generic JavaScript code, including itself
+
+No up-to-date Ruby gem found
+
+*** Mocha
+- http://mochajs.org/
+- https://github.com/mochajs/mocha
+
+Mocha is a feature-rich JavaScript test framework running on Node.js and in the browser, making asynchronous testing simple and fun. Mocha tests run serially, allowing for flexible and accurate reporting, while mapping uncaught exceptions to the correct test cases. Hosted on GitHub.
+
+No up-to-date Ruby gem found
 
 ** Linters
 - http://jshint.com/
