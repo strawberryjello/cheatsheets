@@ -100,6 +100,26 @@ Gems
 - https://github.com/jnicklas/capybara
 - https://github.com/copiousfreetime/launchy
 
+** Elasticsearch
+Searchable module
+- https://github.com/elastic/elasticsearch-rails/blob/master/elasticsearch-rails/lib/rails/templates/searchable.rb
+  - see =index_name= for an example of namespacing by prefixing the index names with the environment
+
+Testing
+- https://benjaminknofe.com/blog/2014/06/14/rspec-testing-rails-with-elasticsearch/ (jun 2014)
+- https://blog.pivotal.io/labs/labs/rspec-elasticsearchruby-elasticsearchmodel (may 2014)
+- http://joliv.me/2013/10/07/elasticsearch-recreate-index-tests/ (oct 2013)
+
+** Logging
+Using logrotate with Rails
+- https://gorails.com/guides/rotating-rails-production-logs-with-logrotate (circa sep 2015)
+- https://benjaminknofe.com/blog/2014/10/02/configure-logrotate-for-rails-with-puppet/ (oct 2014)
+- http://stackoverflow.com/questions/4883891/ruby-on-rails-production-log-rotation (feb 2011)
+
+Tutorials about logrotate
+- https://support.rackspace.com/how-to/understanding-logrotate-utility/ (jan 2016)
+- https://support.rackspace.com/how-to/sample-logrotate-configuration-and-troubleshooting/ (dec 2015)
+
 ** User authentication
 API
 - http://api.rubyonrails.org/classes/ActiveModel/SecurePassword/ClassMethods.html#method-i-has_secure_password
