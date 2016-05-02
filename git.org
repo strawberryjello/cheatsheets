@@ -51,3 +51,8 @@ Footnotes:
 ** Resources
 - https://git-scm.com/docs/gitrevisions
   - specifying revisions and ranges
+
+StackOverflow/StackExchange
+- http://stackoverflow.com/questions/8646517/see-the-size-of-a-github-repo-before-cloning-it
+- http://stackoverflow.com/questions/2882620/is-it-possible-to-remote-count-object-and-size-of-git-repository
+- http://webapps.stackexchange.com/questions/39587/view-estimated-size-of-github-repository-before-cloning
