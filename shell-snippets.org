@@ -12,6 +12,14 @@ Related:
 - [[https://kb.iu.edu/d/afar][In Unix, how can I split large files into a number of smaller files?]] (Indiana University Knowledge Base)
   - explains usage of =split=, which can split files into smaller files by a set number of lines
 
+* rename
+** Using rename to change file extensions
+Example from [[http://stackoverflow.com/a/1224782][a StackOverflow answer]]:
+#+BEGIN_SRC sh
+rename 's/\.html$/\.txt/' *.html
+#+END_SRC
+
+
 * zip
 ** zip all same-level directories individually
 [[http://unix.stackexchange.com/a/68490][StackOverflow answer]]:
