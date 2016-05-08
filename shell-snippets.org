@@ -13,6 +13,16 @@ Related:
   - explains usage of =split=, which can split files into smaller files by a set number of lines
 
 * Renaming files
+** Zero padding filenames
+Example adapted from [[http://stackoverflow.com/a/3672345][a StackOverflow answer]]:
+#+BEGIN_SRC sh
+for a in [0-9]*.[a-zA-Z]*; do
+    mv $a `printf %03d.%s ${a%.*} ${a##*.}`
+done
+#+END_SRC
+
+See the [[http://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html#Shell-Parameter-Expansion][Bash reference manual section on shell parameter expansion]] for details on how the filename and extension are extracted using =%= and =##=.
+
 ** Using rename to change file extensions
 Example from [[http://stackoverflow.com/a/1224782][a StackOverflow answer]]:
 #+BEGIN_SRC sh
