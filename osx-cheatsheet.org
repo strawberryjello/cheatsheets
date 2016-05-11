@@ -19,6 +19,7 @@ diskutil unmount /dev/disk3s1
 Sources:
 - [[https://developer.apple.com/library/mac/documentation/Darwin/Reference/ManPages/man8/diskutil.8.html][diskutil - OS X 10.9 man pages]]
 - [[http://osxdaily.com/2013/05/13/mount-unmount-drives-from-the-command-line-in-mac-os-x/][Mount & Unmount Drives from the Command Line in Mac OS X - OS X Daily]]
+
 ** Removing extended attributes from files
 List extended attributes
 #+BEGIN_SRC sh
@@ -36,3 +37,6 @@ Resources:
   - see =man xattr= for other versions of OS X
 - http://apple.stackexchange.com/questions/104712/what-causes-os-x-to-mark-a-folder-as-quarantined
 - http://unix.stackexchange.com/questions/10/what-does-the-mean-in-ls-l
+
+** Resources
+- [[http://www.westwind.com/reference/OS-X/invisibles.html][Mac OS X Hidden Files & Directories]] (2005)
