@@ -22,5 +22,8 @@ List tables:
 Describe table columns:
 =describe tablename;=
 
+Show privileges:
+=show grants [for user];=
+
 ** References
 - http://www.pantz.org/software/mysql/mysqlcommands.html
