@@ -25,5 +25,21 @@ Describe table columns:
 Show privileges:
 =show grants [for user];=
 
+** Recipes
+*** Store data from a table into a file
+Example from [[http://stackoverflow.com/a/17685029][this StackOverflow answer]] (for a Ruby question)
+#+BEGIN_SRC sql
+SELECT * FROM mytable
+  INTO OUTFILE 'C:\\tmp\\mytable.csv'
+  FIELDS TERMINATED BY ','
+  ENCLOSED BY '"'
+  LINES TERMINATED BY '\r\n'
+#+END_SRC
+
+Caveat: the user which runs this must have permission to write in the target directory
+
+Resources
+- https://dev.mysql.com/doc/refman/5.6/en/cannot-create.html
+
 ** References
 - http://www.pantz.org/software/mysql/mysqlcommands.html
