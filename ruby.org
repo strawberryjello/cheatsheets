@@ -120,6 +120,12 @@ Tutorials about logrotate
 - https://support.rackspace.com/how-to/understanding-logrotate-utility/ (jan 2016)
 - https://support.rackspace.com/how-to/sample-logrotate-configuration-and-troubleshooting/ (dec 2015)
 
+** Migrations
+Coercing/casting a column to another data type (PostgreSQL)
+- http://makandracards.com/makandra/18691-postgresql-vs-rails-migration-how-to-change-columns-from-string-to-integer
+- http://stackoverflow.com/questions/12603498/rails-migration-error-w-postgres-when-pushing-to-heroku
+  - linked in PostgreSQL question: http://stackoverflow.com/questions/13170570/change-type-of-varchar-field-to-integer-cannot-be-cast-automatically-to-type-i
+
 ** User authentication
 API
 - http://api.rubyonrails.org/classes/ActiveModel/SecurePassword/ClassMethods.html#method-i-has_secure_password
