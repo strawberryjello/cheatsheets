@@ -8,3 +8,7 @@ Resources
 Resources
 - http://capistranorb.com/documentation/getting-started/authentication-and-authorisation/
 - http://blog.blenderbox.com/2013/02/20/ssh-agent-forwarding-with-github/
+
+* Resources
+- http://www.howardism.org/Technical/Emacs/literate-devops.html
+- http://www.howardism.org/Technical/LP/introduction.html
