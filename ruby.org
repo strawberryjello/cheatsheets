@@ -100,6 +100,13 @@ Gems
 - https://github.com/jnicklas/capybara
 - https://github.com/copiousfreetime/launchy
 
+** Continuous Integration
+Semaphore
+- https://infinum.co/the-capsized-eight/articles/a-ruby-on-rails-continous-integration-process-using-semaphore-github-codeclimate-and-hipchat
+
+Codeship
+- http://cookieshq.co.uk/posts/integrate-your-ci-server-with-pivotal-tracker-and-code-climate/
+
 ** Elasticsearch
 Searchable module
 - https://github.com/elastic/elasticsearch-rails/blob/master/elasticsearch-rails/lib/rails/templates/searchable.rb
