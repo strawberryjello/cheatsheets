@@ -1,14 +1,32 @@
-* SSH
-Resources
+* Resources
+** Articles
+Blogs
+- http://www.howardism.org/Technical/Emacs/literate-devops.html
+- http://www.howardism.org/Technical/LP/introduction.html
+
+Capistrano
+- http://capistranorb.com/documentation/getting-started/authentication-and-authorisation/
+- http://blog.blenderbox.com/2013/02/20/ssh-agent-forwarding-with-github/
+
+** Documentation
+The Linux Documentation Project
+- [[http://www.tldp.org/LDP/sag/html/index.html][Linux System Administrator's Guide]]
+- [[http://www.tldp.org/LDP/nag2/][Linux Network Administrator's Guide]]
+- [[http://www.tldp.org/HOWTO/Bootdisk-HOWTO/][Linux Bootdisk Howto]]
+- [[http://www.tldp.org/HOWTO/From-PowerUp-To-Bash-Prompt-HOWTO.html][From Power Up to Bash Prompt]]
+
+Linux from Scratch
+- http://www.linuxfromscratch.org/lfs/view/stable/
+
+SSH
 - http://linux.die.net/man/1/ssh-add
 - http://linux.die.net/man/5/ssh_config
 - http://linux.die.net/man/1/ssh-copy-id
 
-* Capistrano
-Resources
-- http://capistranorb.com/documentation/getting-started/authentication-and-authorisation/
-- http://blog.blenderbox.com/2013/02/20/ssh-agent-forwarding-with-github/
-
-* Resources
-- http://www.howardism.org/Technical/Emacs/literate-devops.html
-- http://www.howardism.org/Technical/LP/introduction.html
+initramfs, initrd
+- https://wiki.ubuntu.com/Initramfs
+- https://wiki.debian.org/initramfs
+- https://wiki.debian.org/Initrd
+- http://linux.die.net/man/4/initrd
+- http://linux.die.net/man/8/mkinitrd
+- http://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/Documentation/filesystems/ramfs-rootfs-initramfs.txt
