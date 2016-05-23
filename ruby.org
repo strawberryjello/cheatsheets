@@ -59,6 +59,9 @@ Related links:
 - https://github.com/pboling/capistrano_mailer (last update: jun 2014)
 - https://gist.github.com/nosolopau/8315119 (last update: jan 2014)
 
+*** Bundler
+- https://yopefonic.wordpress.com/2011/06/23/multi-platform-ruby-development-with-bundler/
+
 ** Tools
 *** Babushka
 http://babushka.me/
