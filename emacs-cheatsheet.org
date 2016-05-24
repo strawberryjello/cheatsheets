@@ -267,6 +267,30 @@ Use C-c ' again to exit.
 *** Supported languages
 http://orgmode.org/worg/org-contrib/babel/languages.html
 
+** Resources
+- [[http://doc.norang.ca/org-mode.html][Org Mode - Organize Your Life In Plain Text!
+]]
+* Emacs for writing
+Guides
+- http://www.therandymon.com/papers/emacs-for-writers.pdf
+- http://www.tonyballantyne.com/EmacsWritingTips.html
+- http://www.howardism.org/Technical/Emacs/orgmode-wordprocessor.html
+- [[https://www.youtube.com/watch?v=FtieBc3KptU][Jay Dixit's Emacs for Writers video - thoughtbot]]
+
+Packages
+- http://sachachua.com/blog/2011/12/emacs-artbollocks-mode-el-and-writing-more-clearly/
+  - Art Bollocks Mode monitors your writing and highlights words or patterns you may want to reconsider. It can detect repeated words which sometimes slip past proof-reading. It has a list of common passive verbs, making it easier for you to rewrite the sentences to use the active voice. It detects weasel words like 'many' and 'surprisingly'. It even comes with jargon catchers for art critics ('postmodern', 'ironic', and so forth) – hence artbollocks-mode.el.
+  - Sacha's fork: https://github.com/sachac/artbollocks-mode (also recommended by original creator Rob Myers)
+- https://github.com/rbanffy/selectric-mode
+  -  Make your Emacs sound like a proper typewriter.
+- https://github.com/bnbeckwith/writegood-mode
+  - http://bnbeckwith.com/code/writegood-mode.html
+  - This is a minor mode to aid in finding common writing problems. [[http://matt.might.net/articles/shell-scripts-for-passive-voice-weasel-words-duplicates/][Matt Might's weaselwords scripts]] inspired this mode. It highlights text based on a set of weasel-words, passive-voice and duplicate words.
+- https://github.com/rnkn/fountain-mode
+  - Fountain Mode aims to be a full-featured screenwriting environment for GNU Emacs using the Fountain markup format. For more information on the Fountain markup format, visit http://fountain.io.
+- https://github.com/joostkremers/writeroom-mode
+  - writeroom-mode is a minor mode for Emacs that implements a distraction-free writing mode similar to the famous Writeroom editor for OS X. writeroom-mode is meant for GNU Emacs 24, lower versions are not actively supported.
+
 * Packages
 ** Linting
 - https://github.com/flycheck/flycheck
