@@ -96,12 +96,18 @@ If you set an ID for a fixture:
 
 *** Resources
 Tutorials
-- http://nithinbekal.com/posts/capybara-minitest-rails
+- http://nithinbekal.com/posts/capybara-minitest-rails (jun 2015)
+- http://rcanand.github.io/How_To_Test_Rails_With_Minitest_And_Capybara/ (nov 2014)
 
 Gems
 - https://github.com/blowmage/minitest-rails-capybara
 - https://github.com/jnicklas/capybara
 - https://github.com/copiousfreetime/launchy
+- https://github.com/railsware/rack_session_access
+
+StackOverflow
+- [[http://stackoverflow.com/q/26865221][How do I make a Capybara Rails TestCase run as a single transaction?]]
+- [[http://stackoverflow.com/q/12605692][How do I re-use Capybara sessions between tests?]]
 
 ** Continuous Integration
 Semaphore
