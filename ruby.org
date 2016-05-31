@@ -95,6 +95,10 @@ If you set an ID for a fixture:
   #+END_SRC
 
 *** Resources
+Talks
+- http://www.zenspider.com/pdf/2015_railsconf_ruby_on_rails_on_minitest.pdf
+  - https://www.youtube.com/watch?v=MA4jJNUG_dI
+
 Tutorials
 - http://nithinbekal.com/posts/capybara-minitest-rails (jun 2015)
 - http://rcanand.github.io/How_To_Test_Rails_With_Minitest_And_Capybara/ (nov 2014)
