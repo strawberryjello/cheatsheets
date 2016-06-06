@@ -52,6 +52,7 @@ Excerpt from [[http://tldp.org/LDP/abs/html/parameter-substitution.html][Advance
 #+END_QUOTE
 
 * Resources
+Guides
 - [[http://www.gnu.org/software/bash/manual/html_node/index.html][Bash Reference Manual]] - www.gnu.org
   - [[http://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html#Shell-Parameter-Expansion][3.5.3 Shell Parameter Expansion]]
   - [[http://www.gnu.org/software/bash/manual/html_node/Filename-Expansion.html#Filename-Expansion][3.5.8 Filename Expansion]]
@@ -60,3 +61,7 @@ Excerpt from [[http://tldp.org/LDP/abs/html/parameter-substitution.html][Advance
   - [[http://www.tldp.org/LDP/Bash-Beginners-Guide/html/sect_03_04.html][3.4 Shell expansion]]
 - [[http://tldp.org/LDP/abs/html/index.html][Advanced Bash-Scripting Guide]]
   - [[http://tldp.org/LDP/abs/html/parameter-substitution.html][10.2 Parameter Substitution]]
+
+Tools
+- https://github.com/sstephenson/bats
+  - Bash Automated Testing System
