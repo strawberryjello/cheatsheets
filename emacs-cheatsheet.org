@@ -138,6 +138,9 @@ M-S-k         evil-org-mode
 M-S-<down>   (org-move-subtree-down)
 M-S-j         evil-org-mode
     Move subtree down (swap with next subtree of same level). 
+
+C-c *     (org-toggle-heading)
+    Turn a normal line or plain list item into a headline (so that it becomes a subheading at its location). Also turn a headline into a normal line by removing the stars. If there is an active region, turn all lines in the region into headlines. If the first line in the region was an item, turn only the item lines into headlines. Finally, if the first line is a headline, remove the stars from all headlines in the region.
 #+END_SRC
 
 ** Timestamps
