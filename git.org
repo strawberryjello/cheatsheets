@@ -48,6 +48,21 @@ References:
 Footnotes:
 [fn:treeish] https://schacon.github.io/gitbook/4_git_treeishes.html
 
+*** Finding a deleted line
+From [[http://stackoverflow.com/a/4404551][this StackOverflow answer]]:
+#+BEGIN_SRC 
+git log -S <string> path/to/file
+#+END_SRC
+
+Note from [[http://stackoverflow.com/a/12591569][another StackOverflow answer]]:
+#+BEGIN_QUOTE
+=git log= doesn't shows a diff for merge commits by default. The =-c= or =--cc= flags should do the trick:
+
+=git log -c -S'missingtext' /path/to/file=
+
+More discussion/explanation [[http://git.661346.n2.nabble.com/log-p-hides-changes-in-merge-commit-td5896280.html][here]].
+#+END_QUOTE
+
 ** Resources
 - https://git-scm.com/docs/gitrevisions
   - specifying revisions and ranges
