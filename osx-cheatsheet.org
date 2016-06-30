@@ -40,5 +40,12 @@ Resources:
 - http://apple.stackexchange.com/questions/104712/what-causes-os-x-to-mark-a-folder-as-quarantined
 - http://unix.stackexchange.com/questions/10/what-does-the-mean-in-ls-l
 
+** Switching between applications and windows
+Switch between applications: =Cmd Tab=
+Switch between windows of an application: =Cmd `=
+
+Resources:
+- http://superuser.com/questions/299241/in-mac-os-what-is-the-keyboard-shortcut-to-switch-between-windows-of-the-same-a
+
 * Resources
 - [[http://www.westwind.com/reference/OS-X/invisibles.html][Mac OS X Hidden Files & Directories]] (2005)
