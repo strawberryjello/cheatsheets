@@ -1,4 +1,6 @@
-* OS X Yosemite
+* OS X
+Note: Yosemite and up
+
 ** Mounting/unmounting drives
 Get drive identifier from the output of:
 #+BEGIN_SRC 
@@ -38,5 +40,5 @@ Resources:
 - http://apple.stackexchange.com/questions/104712/what-causes-os-x-to-mark-a-folder-as-quarantined
 - http://unix.stackexchange.com/questions/10/what-does-the-mean-in-ls-l
 
-** Resources
+* Resources
 - [[http://www.westwind.com/reference/OS-X/invisibles.html][Mac OS X Hidden Files & Directories]] (2005)
