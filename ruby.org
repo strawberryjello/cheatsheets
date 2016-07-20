@@ -139,6 +139,7 @@ Testing
 - https://benjaminknofe.com/blog/2014/06/14/rspec-testing-rails-with-elasticsearch/ (jun 2014)
 - https://blog.pivotal.io/labs/labs/rspec-elasticsearchruby-elasticsearchmodel (may 2014)
 - http://joliv.me/2013/10/07/elasticsearch-recreate-index-tests/ (oct 2013)
+  - refers to Tire, the predecessor of elasticsearch-rails that's no longer maintained
 
 ** Logging
 Using logrotate with Rails
