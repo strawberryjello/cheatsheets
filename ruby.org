@@ -108,6 +108,8 @@ Gems
 - https://github.com/jnicklas/capybara
 - https://github.com/copiousfreetime/launchy
 - https://github.com/railsware/rack_session_access
+- https://github.com/jfirebaugh/konacha
+  - Test your Rails application's JavaScript with the mocha test framework and chai assertion library
 
 StackOverflow
 - [[http://stackoverflow.com/q/26865221][How do I make a Capybara Rails TestCase run as a single transaction?]]
@@ -119,6 +121,10 @@ Semaphore
 
 Codeship
 - http://cookieshq.co.uk/posts/integrate-your-ci-server-with-pivotal-tracker-and-code-climate/
+
+** Rake
+- http://metaskills.net/2015/02/08/customizing-rake-tasks-in-rails-41-and-higher/
+  - example involves modifying the =test:run= task
 
 ** Elasticsearch
 Searchable module
