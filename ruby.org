@@ -103,6 +103,10 @@ Tutorials
 - http://nithinbekal.com/posts/capybara-minitest-rails (jun 2015)
 - http://rcanand.github.io/How_To_Test_Rails_With_Minitest_And_Capybara/ (nov 2014)
 
+Cheatsheets
+- https://gist.github.com/zhengjia/428105 (jun 2010)
+  - Capybara cheatsheet
+
 Gems
 - https://github.com/blowmage/minitest-rails-capybara
 - https://github.com/jnicklas/capybara
