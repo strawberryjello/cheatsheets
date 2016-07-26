@@ -1,6 +1,12 @@
 * OS X
 Note: Yosemite and up
 
+** Logs
+newsyslog instead of logrotate
+
+- http://serverfault.com/questions/352942/equivalent-of-logrotate-on-osx
+- http://www.freebsd.org/cgi/man.cgi?newsyslog.conf(5)
+
 ** Mounting/unmounting drives
 Get drive identifier from the output of:
 #+BEGIN_SRC 
