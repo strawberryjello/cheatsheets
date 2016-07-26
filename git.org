@@ -9,6 +9,13 @@ References:
 - http://nicolasgallagher.com/git-checkout-specific-files-from-another-branch/
 - http://schacon.github.io/git/git-checkout.html
 
+** Magit
+*** Stage selected region
+Comment from [[https://github.com/magit/magit/issues/649][Magit Github issue]] about staging 1 diff line:
+#+BEGIN_QUOTE
+You can stage the region : use =C-SPC= (or =C-@=) to add the mark, select the needed region, then add.
+#+END_QUOTE
+
 ** Revert
 *** Revert a range of commits
 From [[http://stackoverflow.com/a/4992711][this StackOverflow answer]]:
