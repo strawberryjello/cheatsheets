@@ -137,7 +137,18 @@ Codeship
 
 ** Rake
 - http://metaskills.net/2015/02/08/customizing-rake-tasks-in-rails-41-and-higher/
-  - example involves modifying the =test:run= task
+  - example involves modifying the =test:run= task:
+    #+BEGIN_SRC ruby
+    Rake::Task['test:run'].clear
+
+    namespace :test do
+      Rails::TestTask.new(:_run) do |t|
+        t.test_files = FileList['test/**/*_test.rb']
+      end
+
+      task :run => ['test:_run']
+    end
+    #+END_SRC
 
 ** Elasticsearch
 Searchable module
