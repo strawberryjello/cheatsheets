@@ -73,6 +73,16 @@ Note:
 Related:
 - [[http://www.emacswiki.org/emacs/BrowseUrl][Browse URL - EmacsWiki]]
 - [[http://www.gnu.org/software/emacs/manual/html_node/emacs/Browse_002dURL.html][Following URLs - GNU Emacs Manual]]
+** Fonts
+*** Resizing buffer text
+from [[https://www.emacswiki.org/emacs/SetFonts][EmacsWiki]]:
+
+#+BEGIN_SRC 
+C-x C-+     (text-scale-adjust)
+C-x C--
+C-x C-0
+#+END_SRC
+
 ** Inserting text
 *** Quoting/escaping characters
 Excerpt from the [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Inserting-Text.html][GNU Emacs manual - Inserting text]]:
