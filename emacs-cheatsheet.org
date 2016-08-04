@@ -1,23 +1,4 @@
 * Emacs cheatsheet
-** Version
-=M-x emacs-version=
-
-** Inserting text
-*** Quoting/escaping characters
-Excerpt from the [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Inserting-Text.html][GNU Emacs manual - Inserting text]]:
-#+BEGIN_QUOTE
-To insert a non-graphic character, or a character that your keyboard does not support, first quote it by typing =C-q= (quoted-insert). There are two ways to use =C-q=:
-
-- =C-q= followed by any non-graphic character (even =C-g=) inserts that character. For instance, =C-q DEL= inserts a literal ‘DEL’ character.
-- =C-q= followed by a sequence of octal digits inserts the character with the specified octal character code. You can use any number of octal digits; any non-digit terminates the sequence. If the terminating character is RET, that RET serves only to terminate the sequence. Any other non-digit terminates the sequence and then acts as normal input—thus, =C-q 1 0 1 B= inserts ‘AB’.
-
-The use of octal sequences is disabled in ordinary non-binary Overwrite mode, to give you a convenient way to insert a digit instead of overwriting with it. 
-#+END_QUOTE
-
-Other references:
-- [[http://ergoemacs.org/emacs/emacs_line_ending_char.html][blog post by Xah Lee about newlines in Emacs]]
-- [[http://www.emacswiki.org/emacs/QuotedInsert][EmacsWiki - Quoted Insert]]
-
 ** Buffers
 *** Reverting a buffer
 source: [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Reverting.html][GNU Emacs Manual - Reverting a buffer]]
@@ -92,6 +73,22 @@ Note:
 Related:
 - [[http://www.emacswiki.org/emacs/BrowseUrl][Browse URL - EmacsWiki]]
 - [[http://www.gnu.org/software/emacs/manual/html_node/emacs/Browse_002dURL.html][Following URLs - GNU Emacs Manual]]
+** Inserting text
+*** Quoting/escaping characters
+Excerpt from the [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Inserting-Text.html][GNU Emacs manual - Inserting text]]:
+#+BEGIN_QUOTE
+To insert a non-graphic character, or a character that your keyboard does not support, first quote it by typing =C-q= (quoted-insert). There are two ways to use =C-q=:
+
+- =C-q= followed by any non-graphic character (even =C-g=) inserts that character. For instance, =C-q DEL= inserts a literal ‘DEL’ character.
+- =C-q= followed by a sequence of octal digits inserts the character with the specified octal character code. You can use any number of octal digits; any non-digit terminates the sequence. If the terminating character is RET, that RET serves only to terminate the sequence. Any other non-digit terminates the sequence and then acts as normal input—thus, =C-q 1 0 1 B= inserts ‘AB’.
+
+The use of octal sequences is disabled in ordinary non-binary Overwrite mode, to give you a convenient way to insert a digit instead of overwriting with it. 
+#+END_QUOTE
+
+Other references:
+- [[http://ergoemacs.org/emacs/emacs_line_ending_char.html][blog post by Xah Lee about newlines in Emacs]]
+- [[http://www.emacswiki.org/emacs/QuotedInsert][EmacsWiki - Quoted Insert]]
+
 ** Modes
 *** describe-mode
 From the [[http://www.gnu.org/software/emacs/manual/html_node/elisp/Mode-Help.html][GNU Emacs Manual]]:
@@ -109,6 +106,9 @@ If called from Lisp with a non-nil buffer argument, this function displays the d
 
 See also:
 - http://stackoverflow.com/questions/1511737/how-do-you-list-the-active-minor-modes-in-emacs
+
+** Version
+=M-x emacs-version=
 
 * Org-mode
 ** Structure editing
