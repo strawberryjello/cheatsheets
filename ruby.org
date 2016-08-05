@@ -71,7 +71,8 @@ Babushka is a humble tool for automating computing chores.
 For each job, a test, and the code to make that test pass.
 
 ** Resources
-- http://www.zenspider.com/Languages/Ruby/QuickRef.html
+- http://www.zenspider.com/ruby/quickref.html
+  - contains list of global variables (ie, the ones that start with '$')
 
 * Rails
 ** Testing (Minitest)
