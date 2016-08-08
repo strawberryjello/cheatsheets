@@ -129,6 +129,10 @@ StackOverflow
 - [[http://stackoverflow.com/q/26865221][How do I make a Capybara Rails TestCase run as a single transaction?]]
 - [[http://stackoverflow.com/q/12605692][How do I re-use Capybara sessions between tests?]]
 
+Factories/Factory Girl
+- http://collectiveidea.com/blog/archives/2014/08/06/time-to-bring-back-fixtures/
+- https://whatdoitest.com/getting-friendly-with-fixtures (circa 2014 based on links)
+
 ** Continuous Integration
 Semaphore
 - https://infinum.co/the-capsized-eight/articles/a-ruby-on-rails-continous-integration-process-using-semaphore-github-codeclimate-and-hipchat
