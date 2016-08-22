@@ -1,0 +1,10 @@
+* Resources
+James Bach
+- Exploratory Testing Explained (2003)
+  - http://satisfice.com/articles/et-article.pdf
+- A Context-Driven Approach to Automation in Testing, with Michael Bolton (2016 version)
+  - http://www.satisfice.com/articles/cdt-automation.pdf
+
+Jonathan Bach
+- Session-Based Test Management (2000)
+  - http://www.satisfice.com/articles/sbtm.pdf
