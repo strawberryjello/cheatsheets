@@ -434,4 +434,6 @@ Github
 Articles
 - [[http://geeks.aretotally.in/basic-jenkins-setup-on-aws-with-github-authentication-for-scala-projects/][Basic Jenkins Setup on AWS with Github Authentication for Scala Projects]] (circa 2014)
 - [[http://geeks.aretotally.in/jenkins-for-pull-requests-and-promoted-builds-deploying-to-multiple-environments/][Jenkins for Pull Requests and Promoted Builds Deploying to Multiple Environments]] (circa 2014)
+- [[http://jakubstas.com/github-and-jenkins-integration/#.V8UrZbWevEY][GitHub and Jenkins integration]] (7 apr 2015)
+- [[http://jakubstas.com/github-and-jenkins-pull-request-checking/#.V8Uql7WevEY][GitHub and Jenkins pull request checking]] (16 apr 2015)
 - [[http://davidhollenberger.com/2015/09/25/jenkins-github-oath/][Configure Github Oauth on Jenkins]] (25 sep 2015)
