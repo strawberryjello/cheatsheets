@@ -1,0 +1,4 @@
+* Resources
+- https://pspdfkit.com/blog/2016/selective-pull-request-testing/
+  - links to: https://github.com/jenkinsci/ghprb-plugin/pull/293
+  - restrict paths included in pull request build trigger
