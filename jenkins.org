@@ -1,3 +1,6 @@
+* Plugins
+- [[https://wiki.jenkins-ci.org/display/JENKINS/Job+DSL+Plugin][Job DSL Plugin]] ([[https://github.com/jenkinsci/job-dsl-plugin/wiki][Github wiki]])
+
 * Resources
 - https://pspdfkit.com/blog/2016/selective-pull-request-testing/
   - links to: https://github.com/jenkinsci/ghprb-plugin/pull/293
