@@ -37,6 +37,19 @@ Project site
 Github badges
 - http://inch-ci.org/
 
+*** pdf-reader
+https://github.com/yob/pdf-reader
+
+#+BEGIN_QUOTE
+The PDF::Reader library implements a PDF parser conforming as much as possible to the PDF specification from Adobe.
+
+It provides programmatic access to the contents of a PDF file with a high degree of flexibility.
+
+The PDF 1.7 specification is a weighty document and not all aspects are currently supported. I welcome submission of PDF files that exhibit unsupported aspects of the spec to assist with improving our support.
+
+This is primarily a low-level library that should be used as the foundation for higher level functionality - it's not going to render a PDF for you. There are a few exceptions to support very common use cases like extracting text from a page.
+#+END_QUOTE
+
 *** ruby-lint
 https://github.com/YorickPeterse/ruby-lint
 
