@@ -75,6 +75,68 @@ For each job, a test, and the code to make that test pass.
   - contains list of global variables (ie, the ones that start with '$')
 
 * Rails
+** Articles
+- http://billpatrianakos.me/blog/2013/10/13/list-of-rails-status-code-symbols/
+  - a comment links to the [[https://github.com/rack/rack/blob/1569a985e17d9caaf94d0e97d95ef642c4ab14ba/lib/rack/utils.rb#L470][map of HTTP status codes in Rack on Github]]
+- http://brandonhilkert.com/blog/7-reasons-why-im-sticking-with-minitest-and-fixtures-in-rails/
+- http://culttt.com/2016/02/17/replacing-fixtures-with-factory-girl-in-ruby-on-rails/
+- http://culttt.com/2016/02/10/using-form-objects-in-ruby-on-rails-with-reform/
+  - includes examples of form tests
+- http://everydayrails.com/2015/04/05/rspec-assigns-rails-testing.html
+  - the difference between assigns and reload
+  - assigns will be deprecated in Rails 5
+- https://buildtoship.com/upcoming-changes-in-rails-5-0/
+  - controller tests may be phased out in favor of integration tests
+
+** Continuous Integration
+Semaphore
+- https://infinum.co/the-capsized-eight/articles/a-ruby-on-rails-continous-integration-process-using-semaphore-github-codeclimate-and-hipchat
+
+Codeship
+- http://cookieshq.co.uk/posts/integrate-your-ci-server-with-pivotal-tracker-and-code-climate/
+
+** Elasticsearch
+Searchable module
+- https://github.com/elastic/elasticsearch-rails/blob/master/elasticsearch-rails/lib/rails/templates/searchable.rb
+  - see =index_name= for an example of namespacing by prefixing the index names with the environment
+
+Testing
+- https://benjaminknofe.com/blog/2014/06/14/rspec-testing-rails-with-elasticsearch/ (jun 2014)
+- https://blog.pivotal.io/labs/labs/rspec-elasticsearchruby-elasticsearchmodel (may 2014)
+- http://joliv.me/2013/10/07/elasticsearch-recreate-index-tests/ (oct 2013)
+  - refers to Tire, the predecessor of elasticsearch-rails that's no longer maintained
+
+** Logging
+Using logrotate with Rails
+- https://gorails.com/guides/rotating-rails-production-logs-with-logrotate (circa sep 2015)
+- https://benjaminknofe.com/blog/2014/10/02/configure-logrotate-for-rails-with-puppet/ (oct 2014)
+- http://stackoverflow.com/questions/4883891/ruby-on-rails-production-log-rotation (feb 2011)
+
+Tutorials about logrotate
+- https://support.rackspace.com/how-to/understanding-logrotate-utility/ (jan 2016)
+- https://support.rackspace.com/how-to/sample-logrotate-configuration-and-troubleshooting/ (dec 2015)
+
+** Migrations
+Coercing/casting a column to another data type (PostgreSQL)
+- http://makandracards.com/makandra/18691-postgresql-vs-rails-migration-how-to-change-columns-from-string-to-integer
+- http://stackoverflow.com/questions/12603498/rails-migration-error-w-postgres-when-pushing-to-heroku
+  - linked in PostgreSQL question: http://stackoverflow.com/questions/13170570/change-type-of-varchar-field-to-integer-cannot-be-cast-automatically-to-type-i
+
+** Rake
+- http://metaskills.net/2015/02/08/customizing-rake-tasks-in-rails-41-and-higher/
+  - example involves modifying the =test:run= task:
+    #+BEGIN_SRC ruby
+    Rake::Task['test:run'].clear
+
+    namespace :test do
+      Rails::TestTask.new(:_run) do |t|
+        t.test_files = FileList['test/**/*_test.rb']
+      end
+
+      task :run => ['test:_run']
+    end
+    #+END_SRC
+
 ** Testing (Minitest)
 *** Fixtures
 http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
@@ -133,69 +195,8 @@ Factories/Factory Girl
 - http://collectiveidea.com/blog/archives/2014/08/06/time-to-bring-back-fixtures/
 - https://whatdoitest.com/getting-friendly-with-fixtures (circa 2014 based on links)
 
-** Continuous Integration
-Semaphore
-- https://infinum.co/the-capsized-eight/articles/a-ruby-on-rails-continous-integration-process-using-semaphore-github-codeclimate-and-hipchat
-
-Codeship
-- http://cookieshq.co.uk/posts/integrate-your-ci-server-with-pivotal-tracker-and-code-climate/
-
-** Rake
-- http://metaskills.net/2015/02/08/customizing-rake-tasks-in-rails-41-and-higher/
-  - example involves modifying the =test:run= task:
-    #+BEGIN_SRC ruby
-    Rake::Task['test:run'].clear
-
-    namespace :test do
-      Rails::TestTask.new(:_run) do |t|
-        t.test_files = FileList['test/**/*_test.rb']
-      end
-
-      task :run => ['test:_run']
-    end
-    #+END_SRC
-
-** Elasticsearch
-Searchable module
-- https://github.com/elastic/elasticsearch-rails/blob/master/elasticsearch-rails/lib/rails/templates/searchable.rb
-  - see =index_name= for an example of namespacing by prefixing the index names with the environment
-
-Testing
-- https://benjaminknofe.com/blog/2014/06/14/rspec-testing-rails-with-elasticsearch/ (jun 2014)
-- https://blog.pivotal.io/labs/labs/rspec-elasticsearchruby-elasticsearchmodel (may 2014)
-- http://joliv.me/2013/10/07/elasticsearch-recreate-index-tests/ (oct 2013)
-  - refers to Tire, the predecessor of elasticsearch-rails that's no longer maintained
-
-** Logging
-Using logrotate with Rails
-- https://gorails.com/guides/rotating-rails-production-logs-with-logrotate (circa sep 2015)
-- https://benjaminknofe.com/blog/2014/10/02/configure-logrotate-for-rails-with-puppet/ (oct 2014)
-- http://stackoverflow.com/questions/4883891/ruby-on-rails-production-log-rotation (feb 2011)
-
-Tutorials about logrotate
-- https://support.rackspace.com/how-to/understanding-logrotate-utility/ (jan 2016)
-- https://support.rackspace.com/how-to/sample-logrotate-configuration-and-troubleshooting/ (dec 2015)
-
-** Migrations
-Coercing/casting a column to another data type (PostgreSQL)
-- http://makandracards.com/makandra/18691-postgresql-vs-rails-migration-how-to-change-columns-from-string-to-integer
-- http://stackoverflow.com/questions/12603498/rails-migration-error-w-postgres-when-pushing-to-heroku
-  - linked in PostgreSQL question: http://stackoverflow.com/questions/13170570/change-type-of-varchar-field-to-integer-cannot-be-cast-automatically-to-type-i
-
 ** User authentication
 API
 - http://api.rubyonrails.org/classes/ActiveModel/SecurePassword/ClassMethods.html#method-i-has_secure_password
   - uses the bcrypt gem
 
-** Articles
-- http://billpatrianakos.me/blog/2013/10/13/list-of-rails-status-code-symbols/
-  - a comment links to the [[https://github.com/rack/rack/blob/1569a985e17d9caaf94d0e97d95ef642c4ab14ba/lib/rack/utils.rb#L470][map of HTTP status codes in Rack on Github]]
-- http://brandonhilkert.com/blog/7-reasons-why-im-sticking-with-minitest-and-fixtures-in-rails/
-- http://culttt.com/2016/02/17/replacing-fixtures-with-factory-girl-in-ruby-on-rails/
-- http://culttt.com/2016/02/10/using-form-objects-in-ruby-on-rails-with-reform/
-  - includes examples of form tests
-- http://everydayrails.com/2015/04/05/rspec-assigns-rails-testing.html
-  - the difference between assigns and reload
-  - assigns will be deprecated in Rails 5
-- https://buildtoship.com/upcoming-changes-in-rails-5-0/
-  - controller tests may be phased out in favor of integration tests
