@@ -37,6 +37,13 @@ Project site
 Github badges
 - http://inch-ci.org/
 
+*** pdf-inspector
+https://github.com/prawnpdf/pdf-inspector
+
+#+BEGIN_QUOTE
+A collection of PDF::Reader based analysis classes for inspecting PDF output. Mainly used for testing Prawn, but will work with any PDF. http://prawnpdf.org
+#+END_QUOTE
+
 *** pdf-reader
 https://github.com/yob/pdf-reader
 
