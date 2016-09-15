@@ -131,6 +131,29 @@ Approach #2: using =COPY=
   #+BEGIN_SRC sql
   COPY other_tbl FROM '/path/to/file.csv';
   #+END_SRC
+- [[https://www.postgresql.org/docs/9.4/static/sql-copy.html][PostgreSQL 9.4 documentation for COPY]]
+
+Approach #3: using =psql \o=
+- from an answer to a different question: http://stackoverflow.com/a/5331571
+  #+BEGIN_QUOTE
+  From psql's help (=\?=):
+
+    \o [FILE] send all query results to file or |pipe
+
+  The sequence of commands will look like this:
+
+  #+BEGIN_SRC 
+  [wist@scifres ~]$ psql db
+  Welcome to psql 8.3.6, the PostgreSQL interactive terminal
+
+  db=>\o out.txt
+  db=>\dt
+  db=>\q
+
+  [wist@scifres ~]$
+  #+END_SRC
+  #+END_QUOTE
+- also mentioned in [[https://www.postgresql.org/message-id/1015025899.5762.864.camel%40linda][this mailing list thread from 2002]]
 
 ** Auditing
 *** Audit triggers
