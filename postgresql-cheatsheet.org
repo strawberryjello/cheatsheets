@@ -133,7 +133,10 @@ Approach #2: using =COPY=
   #+END_SRC
 - [[https://www.postgresql.org/docs/9.4/static/sql-copy.html][PostgreSQL 9.4 documentation for COPY]]
 - Additional notes:
-  - to specify a CSV delimiter, append =with csv delimiter ','=
+  - to specify a CSV delimiter, append:
+    #+BEGIN_SRC sql
+    with csv delimiter ','
+    #+END_SRC
 
 Approach #3: using =psql \o=
 - from an answer to a different question: http://stackoverflow.com/a/5331571
