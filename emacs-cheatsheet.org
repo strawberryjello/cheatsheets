@@ -133,6 +133,15 @@ Use C-c ' again to exit.
 *** Supported languages
 http://orgmode.org/worg/org-contrib/babel/languages.html
 
+** Exporting
+Removing the table of contents by setting the =toc= export option:
+
+#+BEGIN_SRC 
+#+OPTIONS: toc:nil
+#+END_SRC
+
+Add the export options to the top of the file
+
 ** Footnotes
 Excerpt from the [[http://orgmode.org/manual/Footnotes.html][Org manual]]:
 #+BEGIN_QUOTE
