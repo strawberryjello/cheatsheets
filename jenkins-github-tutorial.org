@@ -1,3 +1,5 @@
+#+OPTIONS: toc:nil
+
 * What is Jenkins?
 http://jenkins-ci.org/
 
@@ -9,7 +11,7 @@ http://jenkins-ci.org/
 
 ** Install Jenkins
 Install the ff:
-  #+BEGIN_SRC 
+  #+BEGIN_SRC sh
   sudo apt-get install python-software-properties  
   sudo add-apt-repository ppa:webupd8team/java  
   sudo apt-get update  
@@ -29,7 +31,7 @@ After installation, the Jenkins dashboard should be viewable at =localhost:8080=
 - Change the jenkins user's password (eg, try [[http://passwordsgenerator.net/][this password generator]])
 - Add the jenkins user to =sudoers=
 - Generate SSH keys in the Jenkins home directory (by default, =/var/lib/jenkins=):
-  #+BEGIN_SRC 
+  #+BEGIN_SRC sh
   ssh-keygen
   #+END_SRC
   - hit Enter/Return for each choice to use the default settings
@@ -75,7 +77,7 @@ Save!
 Forwarding to port 8080
 - If your Jenkins server has a public IP address, it still needs to forward Github's requests to port 8080 (the port Jenkins listens to by default), which is not publicly accessible
 - You can do this by setting up =nginx= on your Jenkins server to forward requests to port 8080, for example:
-  #+BEGIN_SRC 
+  #+BEGIN_SRC sh
   upstream backends {
       server 127.0.0.1:8080;
   }
@@ -98,7 +100,7 @@ Note: Log into the Jenkins server as the jenkins user when you do these
 
 *** PostgreSQL
 On Ubuntu:
-  #+BEGIN_SRC 
+  #+BEGIN_SRC sh
   sudo apt-get install postgresql
   sudo apt-get install postgresql-server-dev-X.Y
   #+END_SRC
@@ -111,18 +113,18 @@ Create a jenkins PostgreSQL superuser in =psql=:
 
 *** RVM
 - Install RVM in the Jenkins directory (by default, =/var/lib/jenkins=):
-  #+BEGIN_SRC 
+  #+BEGIN_SRC sh
   gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
   curl -L get.rvm.io | /bin/bash -s stable
   #+END_SRC
 - Install Ruby using RVM
-  #+BEGIN_SRC 
+  #+BEGIN_SRC sh
   rvm install <version>
   #+END_SRC
 
 *** Bundler
 Check the Ruby version before installing:
-  #+BEGIN_SRC 
+  #+BEGIN_SRC sh
   gem install bundler
   #+END_SRC
 
