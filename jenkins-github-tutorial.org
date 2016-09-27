@@ -186,15 +186,10 @@ These credentials will be used by Jenkins to pull from your Github repository
   - make sure you generated your SSH keys in the Jenkins directory, ie =/var/lib/jenkins=
 - click the =Add= button to save
 
-* Configure the Github project
-** Add a deploy key for Jenkins
-- Go to =Settings=, then =Deploy keys=
-- Click the =Add deploy key= button
-- Paste in the jenkins user's public key
-  - if you generated the SSH keys in =/var/lib/jenkins= and went with the defaults, the public key should be =/var/lib/jenkins/.ssh/id_rsa.pub=
-- Tick the =Allow write access= checkbox
-- Click =Add key= to save
+* Configure the Jenkins machine user on Github
+If your Jenkins server only needs access to one repository, adding a [[https://developer.github.com/guides/managing-deploy-keys/#deploy-keys][deploy key]] for the server to that repository is enough. Otherwise, you can create a separate account for your server's SSH key (called a "machine user") and give that account read access to the repositories. See the [[https://developer.github.com/guides/managing-deploy-keys/#machine-users][Github documentation]] for details.
 
+* Configure the Github project
 ** Create webhooks
 Note: =<public IP>= is the publicly available URL of your Jenkins server, or a publicly available URL of a server that will forward Github's requests to your Jenkins server
 
