@@ -9,6 +9,18 @@ References:
 - http://nicolasgallagher.com/git-checkout-specific-files-from-another-branch/
 - http://schacon.github.io/git/git-checkout.html
 
+** Cloning
+Cloning from a branch or tag:
+#+BEGIN_SRC 
+git clone --branch <tag_name> <repo_url>
+#+END_SRC
+
+The =--branch= option can be shortened to =-b=.
+
+References:
+- http://stackoverflow.com/questions/20280726/how-to-git-clone-a-specific-tag
+- http://git-scm.com/docs/git-clone
+
 ** Magit
 *** Stage selected region
 Comment from [[https://github.com/magit/magit/issues/649][Magit Github issue]] about staging 1 diff line:
