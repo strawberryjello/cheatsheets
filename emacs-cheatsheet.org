@@ -73,6 +73,7 @@ Note:
 Related:
 - [[http://www.emacswiki.org/emacs/BrowseUrl][Browse URL - EmacsWiki]]
 - [[http://www.gnu.org/software/emacs/manual/html_node/emacs/Browse_002dURL.html][Following URLs - GNU Emacs Manual]]
+
 ** Fonts
 *** Resizing buffer text
 from [[https://www.emacswiki.org/emacs/SetFonts][EmacsWiki]]:
@@ -168,6 +169,20 @@ When the cursor is on an existing link, =C-c C-l= allows you to edit the link an
 
 Note:
 - currently this is the easiest way to extract the URL embedded in an Org link -- copy the link when it appears in the minibuffer for editing
+
+** Plain lists
+*** Creating a list from a block of text
+from [[https://orgmode.org/guide/Plain-lists.html][the Org mode manual]]:
+#+BEGIN_SRC 
+C-c -
+
+    Cycle the entire list level through the different itemize/enumerate bullets ('-', '+', '*', '1.', '1)'). 
+#+END_SRC
+
+[[https://stackoverflow.com/questions/2250930/emacs-orgmode-how-to-make-a-list-from-a-block-of-lines][from Stackoverflow]] (highest-voted answer as of 31 may 2018 (user gregor), not the accepted one)
+#+BEGIN_QUOTE
+(T)he shortest way I know of is: highlight the lines, including their newline character, (t)hen execute =M-x org-ctrl-c-minus= (press =C-c -=)
+#+END_QUOTE
 
 ** Resources
 - [[http://doc.norang.ca/org-mode.html][Org Mode - Organize Your Life In Plain Text!]]
