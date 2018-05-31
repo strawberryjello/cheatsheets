@@ -170,8 +170,8 @@ Note:
 - currently this is the easiest way to extract the URL embedded in an Org link -- copy the link when it appears in the minibuffer for editing
 
 ** Resources
-- [[http://doc.norang.ca/org-mode.html][Org Mode - Organize Your Life In Plain Text!
-]]
+- [[http://doc.norang.ca/org-mode.html][Org Mode - Organize Your Life In Plain Text!]]
+
 ** Structure editing
 From [[http://orgmode.org/manual/Structure-editing.html][the Org mode manual]] and [[https://github.com/edwtjo/evil-org-mode][the evil-org-mode readme]]:
 
