@@ -285,6 +285,16 @@ a-z...
     Accept the modified set. 
 #+END_SRC
 
+*** Viewing headings with a tag
+Excerpts from the [[https://orgmode.org/manual/Tag-searches.html][Org manual]]
+
+#+BEGIN_QUOTE
+C-c / m  or  C-c \     (org-match-sparse-tree)
+
+    Create a sparse tree with all headlines matching a tags/property/TODO search
+#+END_QUOTE
+- all headings except for the ones with the matching tag(s) will be collapsed; the parent headings for the displayed subheadings will also be displayed
+
 ** Timestamps
 From the [[http://orgmode.org/manual/Creating-timestamps.html][Org manual]]:
 #+BEGIN_SRC 
