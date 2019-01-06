@@ -43,6 +43,18 @@ Note:
 References
 - http://stackoverflow.com/questions/4991594/revert-a-range-of-commits-in-git
 
+** Pruning
+*** Pruning remote branch refs
+#+BEGIN_SRC sh
+git remote prune origin
+#+END_SRC
+- Removes stale remote-tracking branches
+- The =--dry-run= option will show the branches that would be pruned, without pruning them
+
+References
+- https://stackoverflow.com/questions/20106712/what-are-the-differences-between-git-remote-prune-git-prune-git-fetch-prune
+- https://git-scm.com/docs/git-remote
+
 ** Searching the commit logs
 *** Finding the commit that deleted a file, then restoring the file
 From [[http://stackoverflow.com/a/1113140][this StackOverflow answer]]:
