@@ -10,6 +10,7 @@ References:
 - http://schacon.github.io/git/git-checkout.html
 
 ** Cloning
+*** From branch or tag
 Cloning from a branch or tag:
 #+BEGIN_SRC 
 git clone --branch <tag_name> <repo_url>
@@ -20,6 +21,40 @@ The =--branch= option can be shortened to =-b=.
 References:
 - http://stackoverflow.com/questions/20280726/how-to-git-clone-a-specific-tag
 - http://git-scm.com/docs/git-clone
+
+*** To a bare repo
+Cloning a local repo to a bare repo:
+#+BEGIN_SRC sh
+git clone --bare localrepo localrepo.git
+#+END_SRC
+
+The bare repo can be copied to a server with scp:
+#+BEGIN_SRC sh
+scp -r localrepo.git user@example.com:/path
+#+END_SRC
+- the user's home directory can be specified with =~=:
+  eg, =user@example.com:~/path=
+
+Reference:
+- https://git-scm.com/book/en/v2/Git-on-the-Server-Getting-Git-on-a-Server
+
+** Initializing
+*** Bare repo
+#+BEGIN_SRC sh
+git init --bare <repo>.git
+#+END_SRC
+- works for Git 1.8 and up
+- the =.git= at the end of the repo directory is a convention for bare repos
+
+alternative:
+#+BEGIN_SRC sh
+mkdir <repo>
+cd <repo>
+git init --bare
+#+END_SRC
+
+Reference:
+- https://stackoverflow.com/questions/7632454/how-do-you-use-git-bare-init-repository
 
 ** Magit
 *** Stage selected region
@@ -94,7 +129,7 @@ Note from [[http://stackoverflow.com/a/12591569][another StackOverflow answer]]:
 More discussion/explanation [[http://git.661346.n2.nabble.com/log-p-hides-changes-in-merge-commit-td5896280.html][here]].
 #+END_QUOTE
 
-** Resources
+* Resources
 - https://git-scm.com/docs/gitrevisions
   - specifying revisions and ranges
 
